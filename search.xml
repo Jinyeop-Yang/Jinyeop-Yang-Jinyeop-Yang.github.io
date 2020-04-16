@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 파이썬 SW문제해결 기본 - Tree (1)</title>
+    <url>/2020/04/16/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/</url>
+    <content><![CDATA[<h3 id="5174-subtree-5178-노드의-합"><a href="#5174-subtree-5178-노드의-합" class="headerlink" title="5174. subtree  / 5178. 노드의 합"></a>5174. subtree  / 5178. 노드의 합</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDN86AAXw5UW6&subjectId=AWOVJ-_6qfsDFAWg" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+<h3 id="subtree"><a href="#subtree" class="headerlink" title="- subtree"></a>- subtree</h3></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">T = int(input())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subtree</span><span class="params">(s, cnt)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(lis), <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == s <span class="keyword">and</span> <span class="keyword">not</span> visit[i]:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            subtree(lis[i+<span class="number">1</span>], cnt + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(T):</span><br><span class="line">    r, s = map(int, input().split())</span><br><span class="line">    lis = list(map(int, input().split()))</span><br><span class="line">    visit = [<span class="number">0</span>] * len(lis)</span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(lis), <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == s:</span><br><span class="line">            visit[i] = <span class="literal">True</span></span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            subtree(lis[i+<span class="number">1</span>], <span class="number">1</span>)</span><br><span class="line">            visit[i] = <span class="literal">False</span></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="노드의-합"><a href="#노드의-합" class="headerlink" title="- 노드의 합"></a>- 노드의 합</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">T = int(input())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(T):</span><br><span class="line">    N, M, L = map(int, input().split())</span><br><span class="line">    lis = [<span class="number">0</span>] * (N+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(M):</span><br><span class="line">        a, b = map(int, input().split())</span><br><span class="line">        lis[a] = b</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> N % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        lis[N//<span class="number">2</span>] = lis[N]</span><br><span class="line">        N -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> N &gt; <span class="number">1</span>:</span><br><span class="line">        lis[N//<span class="number">2</span>] = lis[N] + lis[N<span class="number">-1</span>]</span><br><span class="line">        N -= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;lis[L]&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>SWEA</tag>
+        <tag>tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 15683. 감시</title>
     <url>/2020/04/15/%5BBOJ%5D%2015683.%20%EA%B0%90%EC%8B%9C/</url>
     <content><![CDATA[<h3 id="15683-감시"><a href="#15683-감시" class="headerlink" title="15683. 감시"></a>15683. 감시</h3><ul>

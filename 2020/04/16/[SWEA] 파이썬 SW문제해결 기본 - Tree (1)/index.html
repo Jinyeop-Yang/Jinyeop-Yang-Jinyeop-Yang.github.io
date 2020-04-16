@@ -20,23 +20,23 @@
     var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="14499. 주사위 굴리기 문제링크">
+  <meta name="description" content="5174. subtree  &#x2F; 5178. 노드의 합 문제링크">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ] 14499. 주사위 굴리기">
-<meta property="og:url" content="http://jinyeop-yang.github.io/2020/03/18/[BOJ]%2014499.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B5%B4%EB%A6%AC%EA%B8%B0/index.html">
+<meta property="og:title" content="[SWEA] 파이썬 SW문제해결 기본 - Tree (1)">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2020/04/16/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/index.html">
 <meta property="og:site_name" content="하루하루 기록일지">
-<meta property="og:description" content="14499. 주사위 굴리기 문제링크">
+<meta property="og:description" content="5174. subtree  &#x2F; 5178. 노드의 합 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-03-18T06:05:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T16:07:40.502Z">
+<meta property="article:published_time" content="2020-04-16T13:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-16T14:05:33.847Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
-<meta property="article:tag" content="simulation">
+<meta property="article:tag" content="SWEA">
+<meta property="article:tag" content="tree">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jinyeop-yang.github.io/2020/03/18/[BOJ]%2014499.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B5%B4%EB%A6%AC%EA%B8%B0/">
+<link rel="canonical" href="http://jinyeop-yang.github.io/2020/04/16/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>[BOJ] 14499. 주사위 굴리기 | 하루하루 기록일지</title>
+  <title>[SWEA] 파이썬 SW문제해결 기본 - Tree (1) | 하루하루 기록일지</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
     <script>
@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/03/18/[BOJ]%2014499.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B5%B4%EB%A6%AC%EA%B8%B0/">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/04/16/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/big.jpg">
@@ -223,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ] 14499. 주사위 굴리기
+          [SWEA] 파이썬 SW문제해결 기본 - Tree (1)
         </h1>
 
         <div class="post-meta">
@@ -232,23 +232,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
+              
 
-              <time title="Post created: 2020-03-18 15:05:00" itemprop="dateCreated datePublished" datetime="2020-03-18T15:05:00+09:00">2020-03-18</time>
+              <time title="Post created: 2020-04-16 22:00:00 / Updated at: 23:05:33" itemprop="dateCreated datePublished" datetime="2020-04-16T22:00:00+09:00">2020-04-16</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-28 01:07:40" itemprop="dateModified" datetime="2020-03-28T01:07:40+09:00">2020-03-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Baekjoon-Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Baekjoon Online Judge</span></a>
+                  <a href="/categories/SW-Expert-Academy/" itemprop="url" rel="index"><span itemprop="name">SW Expert Academy</span></a>
                 </span>
             </span>
 
@@ -261,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/03/18/%5BBOJ%5D%2014499.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B5%B4%EB%A6%AC%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/18/[BOJ] 14499. 주사위 굴리기/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/04/16/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/16/[SWEA] 파이썬 SW문제해결 기본 - Tree (1)/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -277,18 +271,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="14499-주사위-굴리기"><a href="#14499-주사위-굴리기" class="headerlink" title="14499. 주사위 굴리기"></a>14499. 주사위 굴리기</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/14499" target="_blank" rel="noopener">문제링크</a></p>
+        <h3 id="5174-subtree-5178-노드의-합"><a href="#5174-subtree-5178-노드의-합" class="headerlink" title="5174. subtree  / 5178. 노드의 합"></a>5174. subtree  / 5178. 노드의 합</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDN86AAXw5UW6&subjectId=AWOVJ-_6qfsDFAWg" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
 
-</li>
+<h3 id="subtree"><a href="#subtree" class="headerlink" title="- subtree"></a>- subtree</h3></li>
 </ul>
-<div class="note warning">
-            <p>굴리는 것만 생각하면 된다. 방향은 틀어 지지 않는다.</p><p>그래서 상하좌우로 굴려질 때, 각 위치가 이동되어 지는 위치만을 고려하여 풀이하였다.</p>
-          </div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">T = int(input())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subtree</span><span class="params">(s, cnt)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(lis), <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == s <span class="keyword">and</span> <span class="keyword">not</span> visit[i]:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            subtree(lis[i+<span class="number">1</span>], cnt + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(T):</span><br><span class="line">    r, s = map(int, input().split())</span><br><span class="line">    lis = list(map(int, input().split()))</span><br><span class="line">    visit = [<span class="number">0</span>] * len(lis)</span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(lis), <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == s:</span><br><span class="line">            visit[i] = <span class="literal">True</span></span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            subtree(lis[i+<span class="number">1</span>], <span class="number">1</span>)</span><br><span class="line">            visit[i] = <span class="literal">False</span></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">direction = [</span><br><span class="line">    [<span class="number">3</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>],</span><br><span class="line">    [<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>],</span><br><span class="line">    [<span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>],</span><br><span class="line">    [<span class="number">2</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>]</span><br><span class="line">]</span><br><span class="line">d = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">-1</span>], [<span class="number">-1</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">0</span>]]</span><br><span class="line">N, M, y, x, K = map(int, input().split())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">move = list(map(int, input().split()))</span><br><span class="line">dice, temp = [<span class="number">0</span>] * <span class="number">6</span>, [<span class="number">0</span>] * <span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> move:</span><br><span class="line">    y += d[i<span class="number">-1</span>][<span class="number">0</span>]</span><br><span class="line">    x += d[i<span class="number">-1</span>][<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> &gt; y <span class="keyword">or</span> y &gt;= N <span class="keyword">or</span> <span class="number">0</span> &gt; x <span class="keyword">or</span> x &gt;= M:</span><br><span class="line">        y -= d[i - <span class="number">1</span>][<span class="number">0</span>]</span><br><span class="line">        x -= d[i - <span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    temp = dice[:]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">        dice[j] = temp[direction[i<span class="number">-1</span>][j]<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> Map[y][x]:</span><br><span class="line">        Map[y][x] = dice[<span class="number">5</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dice[<span class="number">5</span>], Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">    print(dice[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="노드의-합"><a href="#노드의-합" class="headerlink" title="- 노드의 합"></a>- 노드의 합</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">T = int(input())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(T):</span><br><span class="line">    N, M, L = map(int, input().split())</span><br><span class="line">    lis = [<span class="number">0</span>] * (N+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(M):</span><br><span class="line">        a, b = map(int, input().split())</span><br><span class="line">        lis[a] = b</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> N % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        lis[N//<span class="number">2</span>] = lis[N]</span><br><span class="line">        N -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> N &gt; <span class="number">1</span>:</span><br><span class="line">        lis[N//<span class="number">2</span>] = lis[N] + lis[N<span class="number">-1</span>]</span><br><span class="line">        N -= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;lis[L]&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -300,9 +291,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/BOJ/" rel="tag"># BOJ</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-              <a href="/tags/simulation/" rel="tag"># simulation</a>
+              <a href="/tags/SWEA/" rel="tag"># SWEA</a>
+              <a href="/tags/tree/" rel="tag"># tree</a>
           </div>
 
         
@@ -311,13 +302,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/18/%5BBOJ%5D%2013458.%20%EC%8B%9C%ED%97%98%20%EA%B0%90%EB%8F%85/" rel="prev" title="[BOJ] 13458. 시험 감독">
-      <i class="fa fa-chevron-left"></i> [BOJ] 13458. 시험 감독
+    <a href="/2020/04/15/%5BBOJ%5D%2015683.%20%EA%B0%90%EC%8B%9C/" rel="prev" title="[BOJ] 15683. 감시">
+      <i class="fa fa-chevron-left"></i> [BOJ] 15683. 감시
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/19/%5BBOJ%5D%2014888.%20%EC%97%B0%EC%82%B0%EC%9E%90%20%EB%81%BC%EC%9B%8C%EB%84%A3%EA%B8%B0/" rel="next" title="[BOJ] 14888. 연산자 끼워넣기">
-      [BOJ] 14888. 연산자 끼워넣기 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -384,7 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#14499-주사위-굴리기"><span class="nav-number">1.</span> <span class="nav-text">14499. 주사위 굴리기</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#5174-subtree-5178-노드의-합"><span class="nav-number">1.</span> <span class="nav-text">5174. subtree  &#x2F; 5178. 노드의 합</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#subtree"><span class="nav-number">2.</span> <span class="nav-text">- subtree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#노드의-합"><span class="nav-number">3.</span> <span class="nav-text">- 노드의 합</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -525,9 +513,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://jinyeop-yang.github.io/2020/03/18/[BOJ]%2014499.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EA%B5%B4%EB%A6%AC%EA%B8%B0/";
-    this.page.identifier = "2020/03/18/[BOJ] 14499. 주사위 굴리기/";
-    this.page.title = "[BOJ] 14499. 주사위 굴리기";
+    this.page.url = "http://jinyeop-yang.github.io/2020/04/16/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/";
+    this.page.identifier = "2020/04/16/[SWEA] 파이썬 SW문제해결 기본 - Tree (1)/";
+    this.page.title = "[SWEA] 파이썬 SW문제해결 기본 - Tree (1)";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
