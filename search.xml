@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 15684. 사다리조작</title>
+    <url>/2020/04/17/%5BBOJ%5D%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/</url>
+    <content><![CDATA[<h3 id="15684-사다리조작"><a href="#15684-사다리조작" class="headerlink" title="15684. 사다리조작"></a>15684. 사다리조작</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/15684" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ol><li>H * N 크기의 사다리를 만든다.</li><li>입력된 좌표의 값을 1로 바꾼다(사다리 연결)</li><li>solve()를 통해서 재귀적으로 가능한 사다리를 만든다.<ul><li>이 때, 가로줄은 연속적으로 만들지 않아도 된다는 것을 유의한다.</li><li>현재 위치가 0이면(옆 사다리와 연결되어 있지 않다면) 1로 만들어주고 (사다리를 연결해주고) x 좌표를 +2 해주어 한칸을 건너 뛴다.</li><li>사다리를 생성할 때마다 do()를 통해서 사다리를 돌려본다.</li><li>사다리 개수가 3을 초과할 때, 사다리 조작에 실패했을 때 추가한 사다리 개수가 3이면 return을 해준다.</li></ul></li><li>do()를 통해 사다리를 탄다.<ul><li>현재 x 위치를 temp에 저장 후, y 가 사다리의 마지막에 도착했을 때 x 와 temp를 비교</li><li>현재 위치 값이 1 이라면 오른쪽으로 1칸 이동</li><li>현재 위치 값이 0 이라면 왼쪽을 탐색 후 왼쪽이 1일 경우 왼쪽으로 1칸 이동</li></ul></li></ol>
+          </div>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        temp = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(H):</span><br><span class="line">            <span class="keyword">if</span> ladder[j][temp]:</span><br><span class="line">                temp += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> temp &gt; <span class="number">0</span> <span class="keyword">and</span> ladder[j][temp<span class="number">-1</span>]:</span><br><span class="line">                temp -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i != temp:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(cnt, y, x)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">if</span> cnt &gt;= res:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> do():</span><br><span class="line">        res = min(res, cnt)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> cnt == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(y, H):</span><br><span class="line">        temp = x <span class="keyword">if</span> i == y <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(temp, N<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> ladder[i][j]:</span><br><span class="line">                ladder[i][j] = <span class="number">1</span></span><br><span class="line">                solve(cnt + <span class="number">1</span>, i, j + <span class="number">2</span>)</span><br><span class="line">                ladder[i][j] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">N, M, H = map(int, input().split())</span><br><span class="line">ladder = [[<span class="number">0</span>] * (N) <span class="keyword">for</span> _ <span class="keyword">in</span> range(H)]</span><br><span class="line">res = <span class="number">4</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(M):</span><br><span class="line">    a, b = map(int, input().split())</span><br><span class="line">    ladder[a<span class="number">-1</span>][b<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">solve(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">print(res <span class="keyword">if</span> res &lt; <span class="number">4</span> <span class="keyword">else</span> <span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>DFS</tag>
+        <tag>backtracking</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 파이썬 SW문제해결 기본 - Tree (1)</title>
     <url>/2020/04/16/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/</url>
     <content><![CDATA[<h3 id="5174-subtree-5178-노드의-합"><a href="#5174-subtree-5178-노드의-합" class="headerlink" title="5174. subtree  / 5178. 노드의 합"></a>5174. subtree  / 5178. 노드의 합</h3><ul>
