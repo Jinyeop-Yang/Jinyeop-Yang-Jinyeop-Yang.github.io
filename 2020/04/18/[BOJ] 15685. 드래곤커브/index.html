@@ -27,19 +27,18 @@
 <meta property="og:site_name" content="하루하루 기록일지">
 <meta property="og:description" content="15685. 드래곤커브 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_0.JPG">
 <meta property="og:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_1.JPG">
 <meta property="og:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_2.JPG">
 <meta property="og:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_3.JPG">
 <meta property="article:published_time" content="2020-04-18T11:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-18T14:13:22.857Z">
+<meta property="article:modified_time" content="2020-04-19T11:59:03.616Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="simulation">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_0.JPG">
+<meta name="twitter:image" content="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/images/dragon_curve_1.JPG">
 
 <link rel="canonical" href="http://jinyeop-yang.github.io/2020/04/18/[BOJ]%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/">
 
@@ -237,10 +236,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
-              
 
-              <time title="Post created: 2020-04-18 20:00:00 / Updated at: 23:13:22" itemprop="dateCreated datePublished" datetime="2020-04-18T20:00:00+09:00">2020-04-18</time>
+              <time title="Post created: 2020-04-18 20:00:00" itemprop="dateCreated datePublished" datetime="2020-04-18T20:00:00+09:00">2020-04-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2020-04-19 20:59:03" itemprop="dateModified" datetime="2020-04-19T20:59:03+09:00">2020-04-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -283,7 +288,7 @@
 </li>
 </ul>
 <div class="note warning">
-            <ol><li>0 : 우 1: 상 2: 좌 3: 우</li><li>규칙을 찾는다.</li></ol><ul><li>ex) 시작점이 (0, 0) 이고 시작 방향이 0 일 경우</li></ul><h6 id="0-세대"><a href="#0-세대" class="headerlink" title="- 0 세대"></a>- 0 세대</h6><p><img src="./images/dragon_curve_0.JPG" alt="curve0"></p><h6 id="1-세대"><a href="#1-세대" class="headerlink" title="- 1 세대"></a>- 1 세대</h6><p><img src="./images/dragon_curve_1.JPG" alt="curve1"></p><h6 id="2-세대"><a href="#2-세대" class="headerlink" title="- 2 세대"></a>- 2 세대</h6><p><img src="./images/dragon_curve_2.JPG" alt="curve2"></p><h6 id="3-세대"><a href="#3-세대" class="headerlink" title="- 3 세대"></a>- 3 세대</h6><p><img src="./images/dragon_curve_3.JPG" alt="curve3"></p><ul><li>위 그림을 참고하면 <code>x + 1</code>세대의 방향은 <code>x</code>세대의 끝점부터 시작점까지 +1 씩 해준 방향과 동일함을 알 수 있다. 따라서 입력 받는 <code>g</code>세대까지 방향 list를 구현하고 <code>Map</code>에 값을 채워 나가며 드래곤 커브를 구현할 수 있다.</li></ul><ol start="3"><li>기준 좌표로부터 →, ↓, ↘ 방향을 체크하여 모두 지나간 지점이면 정사각형의 꼭지점이 모두 드래곤 커브의 일부임을 알 수 있다.</li></ol>
+            <ol><li>0 : 우 1: 상 2: 좌 3: 우</li><li>규칙을 찾는다.</li></ol><ul><li>ex) 시작점이 (0, 0) 이고 시작 방향이 0 일 경우</li></ul><p><code>0 세대</code></p><p><code>1 세대</code></p><p><img src="./images/dragon_curve_1.JPG" alt="curve1"></p><p><code>2 세대</code></p><p><img src="./images/dragon_curve_2.JPG" alt="curve2"></p><p><code>3 세대</code></p><p><img src="./images/dragon_curve_3.JPG" alt="curve3"></p><ul><li>위 그림을 참고하면 <code>x + 1</code>세대의 방향은 <code>x</code>세대의 끝점부터 시작점까지 +1 씩 해준 방향과 동일함을 알 수 있다. 따라서 입력 받는 <code>g</code>세대까지 방향 list를 구현하고 <code>Map</code>에 값을 채워 나가며 드래곤 커브를 구현할 수 있다.</li></ul><ol start="3"><li>기준 좌표로부터 →, ↓, ↘ 방향을 체크하여 모두 지나간 지점이면 정사각형의 꼭지점이 모두 드래곤 커브의 일부임을 알 수 있다.</li></ol>
           </div>
 
 
@@ -380,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#15685-드래곤커브"><span class="nav-number">1.</span> <span class="nav-text">15685. 드래곤커브</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#0-세대"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">- 0 세대</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-세대"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">- 1 세대</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-세대"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">- 2 세대</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-세대"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">- 3 세대</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#15685-드래곤커브"><span class="nav-number">1.</span> <span class="nav-text">15685. 드래곤커브</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
