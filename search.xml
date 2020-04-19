@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 15685. 드래곤커브</title>
+    <url>/2020/04/18/%5BBOJ%5D%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/</url>
+    <content><![CDATA[<h3 id="15685-드래곤커브"><a href="#15685-드래곤커브" class="headerlink" title="15685. 드래곤커브"></a>15685. 드래곤커브</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/15685" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ol><li>0 : 우 1: 상 2: 좌 3: 우</li><li>규칙을 찾는다.</li></ol><ul><li>ex) 시작점이 (0, 0) 이고 시작 방향이 0 일 경우</li></ul><h6 id="0-세대"><a href="#0-세대" class="headerlink" title="- 0 세대"></a>- 0 세대</h6><p><img src="./images/dragon_curve_0.JPG" alt="curve0"></p><h6 id="1-세대"><a href="#1-세대" class="headerlink" title="- 1 세대"></a>- 1 세대</h6><p><img src="./images/dragon_curve_1.JPG" alt="curve1"></p><h6 id="2-세대"><a href="#2-세대" class="headerlink" title="- 2 세대"></a>- 2 세대</h6><p><img src="./images/dragon_curve_2.JPG" alt="curve2"></p><h6 id="3-세대"><a href="#3-세대" class="headerlink" title="- 3 세대"></a>- 3 세대</h6><p><img src="./images/dragon_curve_3.JPG" alt="curve3"></p><ul><li>위 그림을 참고하면 <code>x + 1</code>세대의 방향은 <code>x</code>세대의 끝점부터 시작점까지 +1 씩 해준 방향과 동일함을 알 수 있다. 따라서 입력 받는 <code>g</code>세대까지 방향 list를 구현하고 <code>Map</code>에 값을 채워 나가며 드래곤 커브를 구현할 수 있다.</li></ul><ol start="3"><li>기준 좌표로부터 →, ↓, ↘ 방향을 체크하여 모두 지나간 지점이면 정사각형의 꼭지점이 모두 드래곤 커브의 일부임을 알 수 있다.</li></ol>
+          </div>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dy = [<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">dx = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>]</span><br><span class="line">N = int(input())</span><br><span class="line">Map = [[<span class="number">0</span>] * <span class="number">101</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">101</span>)]</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(N):</span><br><span class="line">    x, y, d, g = map(int, input().split())</span><br><span class="line">    curve = [d]</span><br><span class="line">    Map[y][x] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(g):</span><br><span class="line">        curve += [(i + <span class="number">1</span>) % <span class="number">4</span> <span class="keyword">for</span> i <span class="keyword">in</span> curve[::<span class="number">-1</span>]]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> curve:</span><br><span class="line">        y = y + dy[i]</span><br><span class="line">        x = x + dx[i]</span><br><span class="line">        Map[y][x] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        <span class="keyword">if</span> Map[i][j] + Map[i+<span class="number">1</span>][j] + Map[i][j+<span class="number">1</span>] + Map[i+<span class="number">1</span>][j+<span class="number">1</span>] == <span class="number">4</span>:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 15684. 사다리조작</title>
     <url>/2020/04/17/%5BBOJ%5D%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/</url>
     <content><![CDATA[<h3 id="15684-사다리조작"><a href="#15684-사다리조작" class="headerlink" title="15684. 사다리조작"></a>15684. 사다리조작</h3><ul>
