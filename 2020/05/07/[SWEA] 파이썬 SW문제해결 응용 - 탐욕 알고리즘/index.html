@@ -20,24 +20,23 @@
     var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="15684. 사다리조작 문제링크">
+  <meta name="description" content="5201. 컨테이너 운반  &#x2F; 5202. 화물 도크 &#x2F; 5203. 베이비진 게임 문제링크">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ] 15684. 사다리조작">
-<meta property="og:url" content="http://jinyeop-yang.github.io/2020/04/17/[BOJ]%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/index.html">
+<meta property="og:title" content="[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2020/05/07/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/index.html">
 <meta property="og:site_name" content="하루하루 기록일지">
-<meta property="og:description" content="15684. 사다리조작 문제링크">
+<meta property="og:description" content="5201. 컨테이너 운반  &#x2F; 5202. 화물 도크 &#x2F; 5203. 베이비진 게임 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-04-17T11:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-17T18:35:07.787Z">
+<meta property="article:published_time" content="2020-05-07T13:55:00.000Z">
+<meta property="article:modified_time" content="2020-05-07T13:59:03.578Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
-<meta property="article:tag" content="DFS">
-<meta property="article:tag" content="backtracking">
+<meta property="article:tag" content="brute force">
+<meta property="article:tag" content="SWEA">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jinyeop-yang.github.io/2020/04/17/[BOJ]%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/">
+<link rel="canonical" href="http://jinyeop-yang.github.io/2020/05/07/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>[BOJ] 15684. 사다리조작 | 하루하루 기록일지</title>
+  <title>[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘 | 하루하루 기록일지</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
     <script>
@@ -211,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/04/17/[BOJ]%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/05/07/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/big.jpg">
@@ -224,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ] 15684. 사다리조작
+          [SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘
         </h1>
 
         <div class="post-meta">
@@ -233,23 +232,17 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
+              
 
-              <time title="Post created: 2020-04-17 20:00:00" itemprop="dateCreated datePublished" datetime="2020-04-17T20:00:00+09:00">2020-04-17</time>
+              <time title="Post created: 2020-05-07 22:55:00 / Updated at: 22:59:03" itemprop="dateCreated datePublished" datetime="2020-05-07T22:55:00+09:00">2020-05-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-04-18 03:35:07" itemprop="dateModified" datetime="2020-04-18T03:35:07+09:00">2020-04-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Baekjoon-Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Baekjoon Online Judge</span></a>
+                  <a href="/categories/SW-Expert-Academy/" itemprop="url" rel="index"><span itemprop="name">SW Expert Academy</span></a>
                 </span>
             </span>
 
@@ -262,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/04/17/%5BBOJ%5D%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/04/17/[BOJ] 15684. 사다리조작/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/05/07/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/07/[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -278,18 +271,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="15684-사다리조작"><a href="#15684-사다리조작" class="headerlink" title="15684. 사다리조작"></a>15684. 사다리조작</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/15684" target="_blank" rel="noopener">문제링크</a></p>
+        <h3 id="5201-컨테이너-운반-5202-화물-도크-5203-베이비진-게임"><a href="#5201-컨테이너-운반-5202-화물-도크-5203-베이비진-게임" class="headerlink" title="5201. 컨테이너 운반  / 5202. 화물 도크 / 5203. 베이비진 게임"></a>5201. 컨테이너 운반  / 5202. 화물 도크 / 5203. 베이비진 게임</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWUYEGw61n8DFAVT" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
 
 </li>
 </ul>
-<div class="note warning">
-            <ol><li>H * N 크기의 사다리를 만든다.</li><li>입력된 좌표의 값을 1로 바꾼다(사다리 연결)</li><li>solve()를 통해서 재귀적으로 가능한 사다리를 만든다.<ul><li>이 때, 가로줄은 연속적으로 만들지 않아도 된다는 것을 유의한다.</li><li>현재 위치가 0이면(옆 사다리와 연결되어 있지 않다면) 1로 만들어주고 (사다리를 연결해주고) x 좌표를 +2 해주어 한칸을 건너 뛴다.</li><li>사다리를 생성할 때마다 do()를 통해서 사다리를 돌려본다.</li><li>사다리 개수가 3을 초과할 때, 사다리 조작에 실패했을 때 추가한 사다리 개수가 3이면 return을 해준다.</li></ul></li><li>do()를 통해 사다리를 탄다.<ul><li>현재 x 위치를 temp에 저장 후, y 가 사다리의 마지막에 도착했을 때 x 와 temp를 비교</li><li>현재 위치 값이 1 이라면 오른쪽으로 1칸 이동</li><li>현재 위치 값이 0 이라면 왼쪽을 탐색 후 왼쪽이 1일 경우 왼쪽으로 1칸 이동</li></ul></li></ol>
-          </div>
+<h4 id="컨테이너-운반"><a href="#컨테이너-운반" class="headerlink" title="컨테이너 운반"></a>컨테이너 운반</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N, M = map(int, input().split())</span><br><span class="line">    w = list(map(int, input().split()))</span><br><span class="line">    t = list(map(int, input().split()))</span><br><span class="line">    visit = [<span class="number">0</span>] * N</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    w.sort()</span><br><span class="line">    t.sort()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(M<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> visit[j] <span class="keyword">and</span> t[i] &gt;= w[j]:</span><br><span class="line">                visit[j] = <span class="number">1</span></span><br><span class="line">                res += w[j]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
+<h4 id="화물-도크"><a href="#화물-도크" class="headerlink" title="화물 도크"></a>화물 도크</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N = int(input())</span><br><span class="line">    w = []</span><br><span class="line">    end = res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        s, e = list(map(int, input().split()))</span><br><span class="line">        w.append([s, e])</span><br><span class="line">    w.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> w:</span><br><span class="line">        <span class="keyword">if</span> i[<span class="number">0</span>] &gt;= end:</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line">            end = i[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        temp = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(H):</span><br><span class="line">            <span class="keyword">if</span> ladder[j][temp]:</span><br><span class="line">                temp += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> temp &gt; <span class="number">0</span> <span class="keyword">and</span> ladder[j][temp<span class="number">-1</span>]:</span><br><span class="line">                temp -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i != temp:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(cnt, y, x)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">if</span> cnt &gt;= res:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> do():</span><br><span class="line">        res = min(res, cnt)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> cnt == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(y, H):</span><br><span class="line">        temp = x <span class="keyword">if</span> i == y <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(temp, N<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> ladder[i][j]:</span><br><span class="line">                ladder[i][j] = <span class="number">1</span></span><br><span class="line">                solve(cnt + <span class="number">1</span>, i, j + <span class="number">2</span>)</span><br><span class="line">                ladder[i][j] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">N, M, H = map(int, input().split())</span><br><span class="line">ladder = [[<span class="number">0</span>] * (N) <span class="keyword">for</span> _ <span class="keyword">in</span> range(H)]</span><br><span class="line">res = <span class="number">4</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(M):</span><br><span class="line">    a, b = map(int, input().split())</span><br><span class="line">    ladder[a<span class="number">-1</span>][b<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">solve(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">print(res <span class="keyword">if</span> res &lt; <span class="number">4</span> <span class="keyword">else</span> <span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="베이비진-게임"><a href="#베이비진-게임" class="headerlink" title="베이비진 게임"></a>베이비진 게임</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span>  <span class="title">isrun</span><span class="params">(lis)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> lis:</span><br><span class="line">        <span class="keyword">if</span> num - <span class="number">1</span> <span class="keyword">in</span> lis:</span><br><span class="line">            <span class="keyword">if</span> num - <span class="number">2</span> <span class="keyword">in</span> lis <span class="keyword">or</span> num + <span class="number">1</span> <span class="keyword">in</span> lis:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">elif</span> num + <span class="number">1</span> <span class="keyword">in</span> lis <span class="keyword">and</span> num + <span class="number">2</span> <span class="keyword">in</span> lis:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">istriplet</span><span class="params">(lis)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> lis:</span><br><span class="line">        <span class="keyword">if</span> lis.count(num) &gt;= <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    temp = list(map(int, input().split()))</span><br><span class="line">    A, B = [], []</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(temp), <span class="number">2</span>):</span><br><span class="line">        A.append(temp[i])</span><br><span class="line">        B.append(temp[i+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> isrun(A[:i+<span class="number">1</span>]) <span class="keyword">or</span> istriplet(A[:i+<span class="number">1</span>]):</span><br><span class="line">            res = <span class="number">1</span>; <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> isrun(B[:i+<span class="number">1</span>]) <span class="keyword">or</span> istriplet(B[:i+<span class="number">1</span>]):</span><br><span class="line">            res = <span class="number">2</span>; <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc+<span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -301,10 +293,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/BOJ/" rel="tag"># BOJ</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-              <a href="/tags/DFS/" rel="tag"># DFS</a>
-              <a href="/tags/backtracking/" rel="tag"># backtracking</a>
+              <a href="/tags/brute-force/" rel="tag"># brute force</a>
+              <a href="/tags/SWEA/" rel="tag"># SWEA</a>
           </div>
 
         
@@ -313,13 +304,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/16/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%20-%20Tree%20(1)/" rel="prev" title="[SWEA] 파이썬 SW문제해결 기본 - Tree (1)">
-      <i class="fa fa-chevron-left"></i> [SWEA] 파이썬 SW문제해결 기본 - Tree (1)
+    <a href="/2020/05/06/%5BBOJ%5D%2017144.%20%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80%20%EC%95%88%EB%85%95!/" rel="prev" title="[BOJ] 17144. 미세먼지 안녕!">
+      <i class="fa fa-chevron-left"></i> [BOJ] 17144. 미세먼지 안녕!
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/18/%5BBOJ%5D%2015685.%20%EB%93%9C%EB%9E%98%EA%B3%A4%EC%BB%A4%EB%B8%8C/" rel="next" title="[BOJ] 15685. 드래곤커브">
-      [BOJ] 15685. 드래곤커브 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -386,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#15684-사다리조작"><span class="nav-number">1.</span> <span class="nav-text">15684. 사다리조작</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#5201-컨테이너-운반-5202-화물-도크-5203-베이비진-게임"><span class="nav-number">1.</span> <span class="nav-text">5201. 컨테이너 운반  &#x2F; 5202. 화물 도크 &#x2F; 5203. 베이비진 게임</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#컨테이너-운반"><span class="nav-number">1.1.</span> <span class="nav-text">컨테이너 운반</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#화물-도크"><span class="nav-number">1.2.</span> <span class="nav-text">화물 도크</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#베이비진-게임"><span class="nav-number">1.3.</span> <span class="nav-text">베이비진 게임</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -527,9 +515,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://jinyeop-yang.github.io/2020/04/17/[BOJ]%2015684.%20%EC%82%AC%EB%8B%A4%EB%A6%AC%EC%A1%B0%EC%9E%91/";
-    this.page.identifier = "2020/04/17/[BOJ] 15684. 사다리조작/";
-    this.page.title = "[BOJ] 15684. 사다리조작";
+    this.page.url = "http://jinyeop-yang.github.io/2020/05/07/[SWEA]%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/";
+    this.page.identifier = "2020/05/07/[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘/";
+    this.page.title = "[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
