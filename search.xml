@@ -2,6 +2,26 @@
 <search>
   <entry>
     <title>[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘</title>
+    <url>/2020/05/14/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%EB%B6%84%ED%95%A0%20%EC%A0%95%EB%B3%B5/</url>
+    <content><![CDATA[<h3 id="5207-이진-탐색"><a href="#5207-이진-탐색" class="headerlink" title="5207. 이진 탐색"></a>5207. 이진 탐색</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWUYFsQq11kDFAVT" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="이진-탐색"><a href="#이진-탐색" class="headerlink" title="이진 탐색"></a>이진 탐색</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(l, r, num, lis, flag)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> cnt</span><br><span class="line">    <span class="keyword">if</span> l &gt; r:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    m = (l + r) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lis[m] == num:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">elif</span> lis[m] &gt; num:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> flag:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> search(l, m - <span class="number">1</span>, num, lis, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> flag == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">return</span> search(m + <span class="number">1</span>, r, num, lis, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N, M = map(int, input().split())</span><br><span class="line">    A = list(map(int, input().split()))</span><br><span class="line">    B = list(map(int, input().split()))</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    A.sort()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(B)):</span><br><span class="line">        search(<span class="number">0</span>, len(A) - <span class="number">1</span>, B[i], A, <span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"#&#123;&#125; &#123;&#125;"</span>.format(tc+<span class="number">1</span>, cnt))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[SWEA] 파이썬 SW문제해결 응용 - 탐욕 알고리즘</title>
     <url>/2020/05/07/%5BSWEA%5D%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20SW%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%20-%20%ED%83%90%EC%9A%95%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</url>
     <content><![CDATA[<h3 id="5201-컨테이너-운반-5202-화물-도크-5203-베이비진-게임"><a href="#5201-컨테이너-운반-5202-화물-도크-5203-베이비진-게임" class="headerlink" title="5201. 컨테이너 운반  / 5202. 화물 도크 / 5203. 베이비진 게임"></a>5201. 컨테이너 운반  / 5202. 화물 도크 / 5203. 베이비진 게임</h3><ul>
 <li><p><a href="https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDYSqAAbw5UW6&subjectId=AWUYEGw61n8DFAVT" target="_blank" rel="noopener">문제링크</a></p>
