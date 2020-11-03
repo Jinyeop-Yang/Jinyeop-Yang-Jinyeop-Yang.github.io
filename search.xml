@@ -10,6 +10,8 @@
 <h5 id="프로세스-제어-블록-PCB-Process-Control-Block"><a href="#프로세스-제어-블록-PCB-Process-Control-Block" class="headerlink" title="프로세스 제어 블록(PCB, Process Control Block)"></a>프로세스 제어 블록(PCB, Process Control Block)</h5><blockquote>
 <p><strong>PCB</strong>는 <strong>특정 프로세스에 대한 중요한 정보를 저장하고 있는 운영체제의 자료구조</strong>이다.  운영체제는 프로세스를 관리하기 위해 <strong>프로세스의 생성과 동시에 고유한 PCB를 생성</strong>한다. 프로세스는 CPU를 할당받아 작업을 처리하다가도 프로세스 전환이 발생하면 진행하던 작업을 저장하고 CPU를 반환해야 하는데, 이 때 작업의 진행 상황을 모두 PCB에 저장하게 된다. 그리고 다시 CPU를 할당받게 되면 PCB에 저장되어있던 내용을 불러와 이전에 종료됐던 시점부터 다시 작업을 수행한다.</p>
 </blockquote>
+<a id="more"></a>
+
 <ul>
 <li>PCB에 저장되는 정보<ul>
 <li>프로세스 식별자 (Process ID, PID)</li>
@@ -23,8 +25,10 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/process.png" alt="process"></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"d-flex"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/process.png"</span> <span class="attr">alt</span>=<span class="string">"process"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/images/memory.png"</span> <span class="attr">alt</span>=<span class="string">"memory"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div style="display: flex">
+    <img src="/images/process.png" alt="process" width="300">
+    <img src="/images/memory.png" alt="memory" width="300">
+</div>
 
 
 
@@ -78,7 +82,7 @@
 </li>
 </ul>
 <div class="note warning">
-            
+            <p>왜 여러 프로세스(멀티 프로세스)로 할 수 있는 작업들을 굳이 하나의 프로세스에서 스레드로 나누는가?</p><p>-&gt; 시스템 자원을 효율적으로 관리하기 위해서!</p>
           </div>]]></content>
       <categories>
         <category>OS</category>
