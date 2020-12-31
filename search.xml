@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 9012. 괄호</title>
+    <url>/2020/12/31/%5BBOJ%5D%209012.%20%EA%B4%84%ED%98%B8/</url>
+    <content><![CDATA[<h3 id="9012-괄호"><a href="#9012-괄호" class="headerlink" title="9012. 괄호"></a>9012. 괄호</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/9012" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    lis = list(input())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> lis:</span><br><span class="line">        <span class="keyword">if</span> i == <span class="string">'('</span>:</span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="string">')'</span>:</span><br><span class="line">            <span class="keyword">if</span> a == <span class="number">0</span>: <span class="keyword">break</span></span><br><span class="line">            a -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"YES"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"NO"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(<span class="string">"NO"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 51</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N, n, b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line">	<span class="keyword">char</span> s[MAX];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">		<span class="keyword">int</span> l = <span class="built_in">strlen</span>(s);</span><br><span class="line">		n = b = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; l; j++) &#123;</span><br><span class="line">			n += (s[j] == <span class="string">'('</span>) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">				b = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!b) &#123;</span><br><span class="line">			<span class="keyword">if</span> (n != <span class="number">0</span>)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>c++</tag>
+        <tag>stack</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[OS] Process and Thread</title>
     <url>/2020/11/01/%5BOS%5D%20Process%20and%20Thread/</url>
     <content><![CDATA[<h3 id="프로세스와-스레드"><a href="#프로세스와-스레드" class="headerlink" title="프로세스와 스레드"></a>프로세스와 스레드</h3><h4 id="프로세스-Process"><a href="#프로세스-Process" class="headerlink" title="프로세스(Process)"></a>프로세스(Process)</h4><blockquote>

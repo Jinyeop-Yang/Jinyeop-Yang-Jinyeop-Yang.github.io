@@ -20,23 +20,25 @@
     var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="3190. 뱀 문제링크">
+  <meta name="description" content="9012. 괄호 문제링크">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ] 3190. 뱀">
-<meta property="og:url" content="http://jinyeop-yang.github.io/2020/03/17/[BOJ]%203190.%20%EB%B1%80/index.html">
+<meta property="og:title" content="[BOJ] 9012. 괄호">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2020/12/31/[BOJ]%209012.%20%EA%B4%84%ED%98%B8/index.html">
 <meta property="og:site_name" content="하루하루 기록일지">
-<meta property="og:description" content="3190. 뱀 문제링크">
+<meta property="og:description" content="9012. 괄호 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-03-17T06:10:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T16:07:40.506Z">
+<meta property="article:published_time" content="2020-12-31T08:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-31T09:36:49.859Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
-<meta property="article:tag" content="simulation">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="stack">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jinyeop-yang.github.io/2020/03/17/[BOJ]%203190.%20%EB%B1%80/">
+<link rel="canonical" href="http://jinyeop-yang.github.io/2020/12/31/[BOJ]%209012.%20%EA%B4%84%ED%98%B8/">
 
 
 <script id="page-configurations">
@@ -48,7 +50,7 @@
   };
 </script>
 
-  <title>[BOJ] 3190. 뱀 | 하루하루 기록일지</title>
+  <title>[BOJ] 9012. 괄호 | 하루하루 기록일지</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
     <script>
@@ -210,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/03/17/[BOJ]%203190.%20%EB%B1%80/">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/12/31/[BOJ]%209012.%20%EA%B4%84%ED%98%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/big.jpg">
@@ -223,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ] 3190. 뱀
+          [BOJ] 9012. 괄호
         </h1>
 
         <div class="post-meta">
@@ -232,16 +234,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
+              
 
-              <time title="Post created: 2020-03-17 15:10:00" itemprop="dateCreated datePublished" datetime="2020-03-17T15:10:00+09:00">2020-03-17</time>
+              <time title="Post created: 2020-12-31 17:00:00 / Updated at: 18:36:49" itemprop="dateCreated datePublished" datetime="2020-12-31T17:00:00+09:00">2020-12-31</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-28 01:07:40" itemprop="dateModified" datetime="2020-03-28T01:07:40+09:00">2020-03-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -261,8 +257,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/03/17/%5BBOJ%5D%203190.%20%EB%B1%80/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/17/[BOJ] 3190. 뱀/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/12/31/%5BBOJ%5D%209012.%20%EA%B4%84%ED%98%B8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/31/[BOJ] 9012. 괄호/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -277,14 +273,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="3190-뱀"><a href="#3190-뱀" class="headerlink" title="3190. 뱀"></a>3190. 뱀</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/3190" target="_blank" rel="noopener">문제링크</a></p>
+        <h3 id="9012-괄호"><a href="#9012-괄호" class="headerlink" title="9012. 괄호"></a>9012. 괄호</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/9012" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
-
 
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dir_check</span><span class="params">(d, str)</span>:</span> <span class="comment"># 방향을 돌려준다.</span></span><br><span class="line">    <span class="keyword">if</span> str == <span class="string">'D'</span>:</span><br><span class="line">        d = (d + <span class="number">1</span>) % <span class="number">4</span></span><br><span class="line">    <span class="keyword">elif</span> str == <span class="string">'L'</span>:</span><br><span class="line">        d = (d - <span class="number">1</span>) % <span class="number">4</span></span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(snake)</span>:</span> <span class="comment"># 방향따라 한칸씩 이동</span></span><br><span class="line">    <span class="keyword">if</span> snake[<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">        snake[<span class="number">1</span>] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> snake[<span class="number">2</span>] == <span class="number">1</span>:</span><br><span class="line">        snake[<span class="number">0</span>] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> snake[<span class="number">2</span>] == <span class="number">2</span>:</span><br><span class="line">        snake[<span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> snake[<span class="number">2</span>] == <span class="number">3</span>:</span><br><span class="line">        snake[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> snake</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">()</span>:</span></span><br><span class="line">    snake = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>]   <span class="comment"># 초기 뱀의 위치, 방향</span></span><br><span class="line">    route.append([<span class="number">1</span>, <span class="number">1</span>]) <span class="comment"># 뱀이 움직이는 경로</span></span><br><span class="line">    Map[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    t_idx = end_time = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        s = move(snake) <span class="comment"># 뱀의 이동</span></span><br><span class="line">        <span class="keyword">if</span> s[<span class="number">0</span>] &lt; <span class="number">1</span> <span class="keyword">or</span> s[<span class="number">1</span>] &lt; <span class="number">1</span> <span class="keyword">or</span> N &lt; s[<span class="number">0</span>] <span class="keyword">or</span> N &lt; s[<span class="number">1</span>] <span class="keyword">or</span> Map[s[<span class="number">0</span>]][s[<span class="number">1</span>]] == <span class="number">1</span>:</span><br><span class="line">            end_time += <span class="number">1</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> Map[s[<span class="number">0</span>]][s[<span class="number">1</span>]] != <span class="number">2</span>: <span class="comment"># 사과가 없으면</span></span><br><span class="line">            a, b = route.pop(<span class="number">0</span>) <span class="comment"># 꼬리 당기기</span></span><br><span class="line">            Map[a][b] = <span class="number">0</span></span><br><span class="line">        Map[s[<span class="number">0</span>]][s[<span class="number">1</span>]] = <span class="number">1</span></span><br><span class="line">        route.append([s[<span class="number">0</span>], s[<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line">        snake = s[:] <span class="comment"># 이동한 위치를 다시 snake에 저장</span></span><br><span class="line"></span><br><span class="line">        end_time += <span class="number">1</span> <span class="comment"># 1초 증가</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> t_idx != len(time):</span><br><span class="line">            <span class="keyword">if</span> end_time == int(time[t_idx][<span class="number">0</span>]): <span class="comment"># 이동 시간에 이동</span></span><br><span class="line">                snake[<span class="number">2</span>] = dir_check(snake[<span class="number">2</span>], time[t_idx][<span class="number">1</span>])</span><br><span class="line">                t_idx += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> end_time</span><br><span class="line"></span><br><span class="line">N = int(input())</span><br><span class="line">Map = [[<span class="number">0</span>]*(N+<span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N+<span class="number">1</span>)]</span><br><span class="line">time = []</span><br><span class="line">route = []</span><br><span class="line"></span><br><span class="line">K = int(input())</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(K):</span><br><span class="line">    a, b = map(int, input().split())</span><br><span class="line">    Map[a][b] = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">L = int(input())</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(L):</span><br><span class="line">    a, b = list(input().split())</span><br><span class="line">    time.append((a,b))</span><br><span class="line"></span><br><span class="line">print(solve())</span><br></pre></td></tr></table></figure>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    lis = list(input())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> lis:</span><br><span class="line">        <span class="keyword">if</span> i == <span class="string">'('</span>:</span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="string">')'</span>:</span><br><span class="line">            <span class="keyword">if</span> a == <span class="number">0</span>: <span class="keyword">break</span></span><br><span class="line">            a -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"YES"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"NO"</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    print(<span class="string">"NO"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 51</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N, n, b;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line">	<span class="keyword">char</span> s[MAX];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">		<span class="keyword">int</span> l = <span class="built_in">strlen</span>(s);</span><br><span class="line">		n = b = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; l; j++) &#123;</span><br><span class="line">			n += (s[j] == <span class="string">'('</span>) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">				b = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (!b) &#123;</span><br><span class="line">			<span class="keyword">if</span> (n != <span class="number">0</span>)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
 
     </div>
@@ -298,7 +303,9 @@
               <a href="/tags/python/" rel="tag"># python</a>
               <a href="/tags/BOJ/" rel="tag"># BOJ</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-              <a href="/tags/simulation/" rel="tag"># simulation</a>
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/stack/" rel="tag"># stack</a>
+              <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
         
@@ -307,13 +314,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/17/%5BBOJ%5D%2012100.%202048%20(Easy)/" rel="prev" title="[BOJ] 12100. 2048 (Easy)">
-      <i class="fa fa-chevron-left"></i> [BOJ] 12100. 2048 (Easy)
+    <a href="/2020/11/01/%5BOS%5D%20Process%20and%20Thread/" rel="prev" title="[OS] Process and Thread">
+      <i class="fa fa-chevron-left"></i> [OS] Process and Thread
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/18/%5BBOJ%5D%2013458.%20%EC%8B%9C%ED%97%98%20%EA%B0%90%EB%8F%85/" rel="next" title="[BOJ] 13458. 시험 감독">
-      [BOJ] 13458. 시험 감독 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -380,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#3190-뱀"><span class="nav-number">1.</span> <span class="nav-text">3190. 뱀</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#9012-괄호"><span class="nav-number">1.</span> <span class="nav-text">9012. 괄호</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">1.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C"><span class="nav-number">1.2.</span> <span class="nav-text">C++</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JAVA"><span class="nav-number">1.3.</span> <span class="nav-text">JAVA</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -521,9 +525,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://jinyeop-yang.github.io/2020/03/17/[BOJ]%203190.%20%EB%B1%80/";
-    this.page.identifier = "2020/03/17/[BOJ] 3190. 뱀/";
-    this.page.title = "[BOJ] 3190. 뱀";
+    this.page.url = "http://jinyeop-yang.github.io/2020/12/31/[BOJ]%209012.%20%EA%B4%84%ED%98%B8/";
+    this.page.identifier = "2020/12/31/[BOJ] 9012. 괄호/";
+    this.page.title = "[BOJ] 9012. 괄호";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
