@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 1912. 연속합</title>
+    <url>/2021/01/19/%5BBOJ%5D%201912.%20%EC%97%B0%EC%86%8D%ED%95%A9/</url>
+    <content><![CDATA[<h3 id="1912-연속합"><a href="#1912-연속합" class="headerlink" title="1912. 연속합"></a>1912. 연속합</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1912" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <h6 id="Integer-parseInt-String-s"><a href="#Integer-parseInt-String-s" class="headerlink" title="Integer.parseInt(String s)"></a>Integer.parseInt(String s)</h6><ul><li>숫자형의 문자열을 받아서 10진수로 반환</li></ul><h6 id="Integer-parseInt-String-s-int-radix"><a href="#Integer-parseInt-String-s-int-radix" class="headerlink" title="Integer.parseInt(String s, int radix)"></a>Integer.parseInt(String s, int radix)</h6><ul><li><code>radix</code>에 있는 진수의 숫자형의 문자열을 받아서 10진수로 반환</li><li>ex) <ul><li>Integer.parseInt(“1004”, 8) : 8진수로 표현된  1004를 10진수로 반환 -&gt; 516</li><li>Integer.parseInt(“1000”, 2) : 2진수로 표현된  1000를 10진수로 반환 -&gt; 8</li></ul></li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line">lis = list(map(int, input().split()))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n):</span><br><span class="line">        lis[i] = max(lis[i], lis[i - <span class="number">1</span>] + lis[i])</span><br><span class="line">print(max(lis))</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 100001</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> arr[MAX] = &#123; <span class="number">0</span>, &#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);</span><br><span class="line">	<span class="keyword">int</span> res = arr[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		arr[i] = <span class="built_in">max</span>(arr[i], arr[i - <span class="number">1</span>] + arr[i]);</span><br><span class="line">		res = <span class="built_in">max</span>(res, arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, res);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, t, s = <span class="number">0</span>, res = <span class="number">-1000</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">		res = <span class="built_in">max</span>(res, s = <span class="built_in">max</span>(s + t, t));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, res);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">		<span class="keyword">int</span> n = Integer.parseInt(br.readLine());</span><br><span class="line">		<span class="keyword">int</span> s = <span class="number">0</span>, res = -<span class="number">1000</span>;</span><br><span class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">		</span><br><span class="line">		StringTokenizer st = <span class="keyword">new</span> StringTokenizer(br.readLine(), <span class="string">" "</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = Integer.parseInt(st.nextToken());</span><br><span class="line">			res = Math.max(res, s = Math.max(temp, s + temp));</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>c++</tag>
+        <tag>java</tag>
+        <tag>dp</tag>
+        <tag>dynamic programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 10814. 나이순 정렬</title>
     <url>/2021/01/18/%5BBOJ%5D%2010814.%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/</url>
     <content><![CDATA[<h3 id="10814-나이순-정렬"><a href="#10814-나이순-정렬" class="headerlink" title="10814. 나이순 정렬"></a>10814. 나이순 정렬</h3><ul>
@@ -28,9 +66,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -62,9 +100,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -188,9 +226,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -218,9 +256,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -244,9 +282,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -336,10 +374,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>simulation</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -387,9 +425,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -414,9 +452,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -440,9 +478,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -467,9 +505,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -598,9 +636,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
