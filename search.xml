@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 10814. 나이순 정렬</title>
+    <url>/2021/01/18/%5BBOJ%5D%2010814.%20%EB%82%98%EC%9D%B4%EC%88%9C%20%EC%A0%95%EB%A0%AC/</url>
+    <content><![CDATA[<h3 id="10814-나이순-정렬"><a href="#10814-나이순-정렬" class="headerlink" title="10814. 나이순 정렬"></a>10814. 나이순 정렬</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/10814" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <h5 id="Scanner-vs-BufferedReader"><a href="#Scanner-vs-BufferedReader" class="headerlink" title="Scanner vs BufferedReader"></a>Scanner vs BufferedReader</h5><h6 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h6><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h6 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h6><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span> <span class="keyword">throws</span> Exception </span>&#123; <span class="comment">//예외처리 필수</span></span><br><span class="line">        <span class="comment">// BufferedReader는 Exception이 처리를 따로 해줘야 하기 때문에 throws를 해주거나 </span></span><br><span class="line">        <span class="comment">// try ~ catch로 예외처리를 해줘야 한다.</span></span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>속도면에서 BufferedReader가 빠르다!</p><p>BufferedReader는 버퍼를 이용하므로, 버퍼가 가득 차거나, 개행 문자가 나타나면 버퍼의 내용을 전송한다.</p></blockquote><h5 id="StringTokenizer"><a href="#StringTokenizer" class="headerlink" title="StringTokenizer"></a>StringTokenizer</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 예시</span></span><br><span class="line">        String a = <span class="string">"성=hong&amp;이름=possible&amp;키=큼"</span>;</span><br><span class="line">        StringTokenizer st = <span class="keyword">new</span> StringTokenizer(a, <span class="string">"&amp;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>하나의 구분자를 이용할 수 있다.</p></blockquote><h5 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        sb.append(<span class="string">"ABC"</span>);</span><br><span class="line">        sb.append(<span class="string">"DEF"</span>);</span><br><span class="line">        System.out.println(sb.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>String은 immutable</p><p>StringBuffer와 StringBuilder의 차이는 <strong>동기화 유무</strong>!</p><p>동기화 O       /    동기화 X</p><p>멀티쓰레드   /    단일쓰레드    에서 각각 성능이 좋다.     </p></blockquote>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>c++</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 9012. 괄호</title>
     <url>/2021/01/17/%5BBOJ%5D%209012.%20%EA%B4%84%ED%98%B8/</url>
     <content><![CDATA[<h3 id="9012-괄호"><a href="#9012-괄호" class="headerlink" title="9012. 괄호"></a>9012. 괄호</h3><ul>
@@ -28,11 +62,11 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
-        <tag>stack</tag>
         <tag>java</tag>
+        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -154,9 +188,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -184,9 +218,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -210,9 +244,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -302,10 +336,10 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>simulation</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -353,9 +387,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -380,9 +414,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -406,10 +440,10 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>DFS</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -433,9 +467,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -564,10 +598,10 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>DFS</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
