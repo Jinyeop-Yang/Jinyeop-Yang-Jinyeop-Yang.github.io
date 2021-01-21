@@ -28,12 +28,12 @@
 <meta property="og:description" content="10814. 나이순 정렬 문제링크">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-01-18T06:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-20T11:48:05.080Z">
+<meta property="article:modified_time" content="2021-01-21T14:28:32.719Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="BOJ">
-<meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="c++">
+<meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
@@ -241,7 +241,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2021-01-20 20:48:05" itemprop="dateModified" datetime="2021-01-20T20:48:05+09:00">2021-01-20</time>
+                <time title="Updated at: 2021-01-21 23:28:32" itemprop="dateModified" datetime="2021-01-21T23:28:32+09:00">2021-01-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,11 +284,15 @@
 
 </li>
 </ul>
+<div class="note info">
+            <blockquote><p><code>string</code> 클래스를 <code>printf</code>로 출력하려면 <code>c_str()</code>을 적어줘야 함.</p><p>ex) printf(“%s”, 이름<strong>.c_str()</strong>)</p></blockquote>
+          </div>
+
 <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lis = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    age, name = input().split()</span><br><span class="line">    lis.append((int(age), name))</span><br><span class="line">lis.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">0</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> lis:</span><br><span class="line">    print(i[<span class="number">0</span>], i[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt;&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="built_in">string</span> b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		v.push_back(make_pair(a,b));</span><br><span class="line">	&#125;</span><br><span class="line">	sort(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %s\n"</span>, v[i].first, v[i].second.c_str());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -304,8 +308,8 @@
           <div class="post-tags">
               <a href="/tags/python/" rel="tag"># python</a>
               <a href="/tags/BOJ/" rel="tag"># BOJ</a>
-              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
               <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/algorithm/" rel="tag"># algorithm</a>
               <a href="/tags/java/" rel="tag"># java</a>
           </div>
 
