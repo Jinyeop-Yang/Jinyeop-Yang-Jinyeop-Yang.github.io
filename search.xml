@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
+    <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
+    <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/20055" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <blockquote><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li>시간을 좀 줄일 수 있다.<ul><li>로봇은 0 ~ n - 1사이에서만 움직이기 때문에 모든 n 값을 확인 할 필요가 없다.</li></ul></li><li>마지막 n - 1에서 로봇이 내려가는 걸 처리해줬다고 생각했는데 꼬여서 시간을 좀 잡아먹었다.</li><li>다시 풀어 볼 것!</li></ul></blockquote>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 1912. 연속합</title>
     <url>/2021/01/19/%5BBOJ%5D%201912.%20%EC%97%B0%EC%86%8D%ED%95%A9/</url>
     <content><![CDATA[<h3 id="1912-연속합"><a href="#1912-연속합" class="headerlink" title="1912. 연속합"></a>1912. 연속합</h3><ul>
