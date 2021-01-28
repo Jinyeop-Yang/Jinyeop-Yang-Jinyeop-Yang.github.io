@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>[Python] % 의 음수 연산</title>
-    <url>/2021/01/28/%5BPython%5D%20%25%20%EC%9D%98%20%EC%9D%8C%EC%88%98%20%EC%97%B0%EC%82%B0/</url>
+    <title>[Python] Modulo의 음수 연산</title>
+    <url>/2021/01/28/%5BPython%5D%20&#39;%25&#39;%20%EC%9D%98%20%EC%9D%8C%EC%88%98%20%EC%97%B0%EC%82%B0/</url>
     <content><![CDATA[<div class="note info">
             <p>-A % B 가 있으면, -A에다가 B를 계속 더하면서 처음으로 양수가 되었을 때 B로 나눈 나머지를 반환한다.</p><p>ex) -1 % 10 : -1 + 10 = 9 , 9 % 10 =&gt; 10</p><p>A % -B 의 경우에는, A에다가 -B를 계속 더하면서 처음으로 음수가 되었을 때, 부호를 뗀 계산을 하고 -를 붙여준다.</p><p>ex) 10 % -4 : 10 - 4 = 6 - 4 = 2 - 4 = -2, 2 % 4 =&gt; 2, 즉 -2</p><p>ex) 9 % -4 : 9 - 4 = 5 - 4 = 1 - 4 = -3, 3 % 4 =&gt; 3, 즉 -3</p>
           </div>
 ]]></content>
       <categories>
-        <category>Baekjoon Online Judge</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>python</tag>
