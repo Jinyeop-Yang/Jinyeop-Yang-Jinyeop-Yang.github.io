@@ -20,22 +20,23 @@
     var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="14890. 경사로 문제링크">
+  <meta name="description" content="20058. 마법사 상어와 파이어스톰 문제링크">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ] 14890. 경사로">
-<meta property="og:url" content="http://jinyeop-yang.github.io/2020/03/23/[BOJ]%2014890.%20%EA%B2%BD%EC%82%AC%EB%A1%9C/index.html">
+<meta property="og:title" content="[BOJ] 20058. 마법사 상어와 파이어스톰">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2021/01/30/[BOJ]%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/index.html">
 <meta property="og:site_name" content="Sketches">
-<meta property="og:description" content="14890. 경사로 문제링크">
+<meta property="og:description" content="20058. 마법사 상어와 파이어스톰 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2020-03-23T09:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-27T16:07:40.505Z">
+<meta property="article:published_time" content="2021-01-30T09:30:00.000Z">
+<meta property="article:modified_time" content="2021-01-30T09:37:19.184Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="simulation">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jinyeop-yang.github.io/2020/03/23/[BOJ]%2014890.%20%EA%B2%BD%EC%82%AC%EB%A1%9C/">
+<link rel="canonical" href="http://jinyeop-yang.github.io/2021/01/30/[BOJ]%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>[BOJ] 14890. 경사로 | Sketches</title>
+  <title>[BOJ] 20058. 마법사 상어와 파이어스톰 | Sketches</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
     <script>
@@ -209,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2020/03/23/[BOJ]%2014890.%20%EA%B2%BD%EC%82%AC%EB%A1%9C/">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/01/30/[BOJ]%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/big.jpg">
@@ -222,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ] 14890. 경사로
+          [BOJ] 20058. 마법사 상어와 파이어스톰
         </h1>
 
         <div class="post-meta">
@@ -231,16 +232,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
+              
 
-              <time title="Post created: 2020-03-23 18:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T18:00:00+09:00">2020-03-23</time>
+              <time title="Post created: 2021-01-30 18:30:00 / Updated at: 18:37:19" itemprop="dateCreated datePublished" datetime="2021-01-30T18:30:00+09:00">2021-01-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2020-03-28 01:07:40" itemprop="dateModified" datetime="2020-03-28T01:07:40+09:00">2020-03-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -260,8 +255,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/03/23/%5BBOJ%5D%2014890.%20%EA%B2%BD%EC%82%AC%EB%A1%9C/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/23/[BOJ] 14890. 경사로/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/01/30/%5BBOJ%5D%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/30/[BOJ] 20058. 마법사 상어와 파이어스톰/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -276,15 +271,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="14890-경사로"><a href="#14890-경사로" class="headerlink" title="14890. 경사로"></a>14890. 경사로</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/14890" target="_blank" rel="noopener">문제링크</a></p>
+        <h3 id="20058-마법사-상어와-파이어스톰"><a href="#20058-마법사-상어와-파이어스톰" class="headerlink" title="20058. 마법사 상어와 파이어스톰"></a>20058. 마법사 상어와 파이어스톰</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/20058" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
-
 
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">N, L = map(int, input().split())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">visit = [[<span class="number">0</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment"># 가로 탐색</span></span><br><span class="line">    idx, cnt = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> idx &lt; N:</span><br><span class="line">        <span class="keyword">if</span> Map[i][idx - <span class="number">1</span>] == Map[i][idx]:</span><br><span class="line">            cnt += <span class="number">1</span>; idx += <span class="number">1</span>; <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> abs(Map[i][idx - <span class="number">1</span>] - Map[i][idx]) &gt;= <span class="number">2</span>: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> Map[i][idx - <span class="number">1</span>] &lt; Map[i][idx]:</span><br><span class="line">                <span class="keyword">if</span> cnt &lt; L: <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    idx += <span class="number">1</span>; cnt = <span class="number">1</span>; <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(idx, N):</span><br><span class="line">                    <span class="keyword">if</span> Map[i][idx] == Map[i][j]: temp += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> temp &gt;= L:</span><br><span class="line">                    idx += L; cnt = <span class="number">0</span>; <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> idx == N: res += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment"># 세로 탐색</span></span><br><span class="line">    idx, cnt = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> idx &lt; N:</span><br><span class="line">        <span class="keyword">if</span> Map[idx - <span class="number">1</span>][i] == Map[idx][i]:</span><br><span class="line">            cnt += <span class="number">1</span>; idx += <span class="number">1</span>; <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">elif</span> abs(Map[idx - <span class="number">1</span>][i] - Map[idx][i]) &gt;= <span class="number">2</span>: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> Map[idx - <span class="number">1</span>][i] &lt; Map[idx][i]:</span><br><span class="line">                <span class="keyword">if</span> cnt &lt; L: <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    idx += <span class="number">1</span>; cnt = <span class="number">1</span>; <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(idx, N):</span><br><span class="line">                    <span class="keyword">if</span> Map[idx][i] == Map[j][i]: temp += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> temp &gt;= L:</span><br><span class="line">                    idx += L; cnt = <span class="number">0</span>; <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> idx == N: res += <span class="number">1</span></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            
+          </div>
 
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">melt</span><span class="params">()</span>:</span></span><br><span class="line">    t = deque()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            ctemp = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                ny = i + dy[d]</span><br><span class="line">                nx = j + dx[d]</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N <span class="keyword">and</span> A[ny][nx] &gt; <span class="number">0</span>:</span><br><span class="line">                    ctemp += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> ctemp &lt; <span class="number">3</span>:</span><br><span class="line">                t.append((i, j))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> y, x <span class="keyword">in</span> t:</span><br><span class="line">        <span class="keyword">if</span> A[y][x] &gt; <span class="number">0</span>:</span><br><span class="line">            A[y][x] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> cnt, res</span><br><span class="line">    visit = [[<span class="number">0</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            cnt += A[i][j]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> A[i][j] <span class="keyword">and</span> <span class="keyword">not</span> visit[i][j]:</span><br><span class="line">                q = deque()</span><br><span class="line">                q.append((i, j))</span><br><span class="line">                visit[i][j] = <span class="number">1</span></span><br><span class="line">                t = <span class="number">1</span></span><br><span class="line">                <span class="keyword">while</span> q:</span><br><span class="line">                    y, x = q.popleft()</span><br><span class="line">                    <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                        ny = y + dy[d]</span><br><span class="line">                        nx = x + dx[d]</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N <span class="keyword">and</span> A[ny][nx] &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">not</span> visit[ny][nx]:</span><br><span class="line">                            t += <span class="number">1</span></span><br><span class="line">                            visit[ny][nx] = <span class="number">1</span></span><br><span class="line">                            q.append((ny, nx))</span><br><span class="line"></span><br><span class="line">                res = max(res, t)</span><br><span class="line"></span><br><span class="line">N, Q = map(int, input().split())</span><br><span class="line">N = <span class="number">2</span> ** N</span><br><span class="line">A = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">L = map(int, input().split())</span><br><span class="line">cnt = res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> L:</span><br><span class="line">    temp = <span class="number">2</span> ** l</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, N, temp): <span class="comment"># 얼음 이동</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, N, temp):</span><br><span class="line">            t = []</span><br><span class="line">            idx = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> range(j, j + temp):</span><br><span class="line">                <span class="keyword">for</span> b <span class="keyword">in</span> range(i + temp - <span class="number">1</span>, i - <span class="number">1</span>, <span class="number">-1</span>):</span><br><span class="line">                    t.append(A[b][a])</span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> range(i, i + temp):</span><br><span class="line">                <span class="keyword">for</span> b <span class="keyword">in</span> range(j, j + temp):</span><br><span class="line">                    A[a][b] = t[idx]</span><br><span class="line">                    idx += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 얼음 녹이기</span></span><br><span class="line">    melt()</span><br><span class="line"><span class="comment"># 카운트</span></span><br><span class="line">check()</span><br><span class="line"></span><br><span class="line">print(cnt)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -297,6 +294,7 @@
               <a href="/tags/python/" rel="tag"># python</a>
               <a href="/tags/BOJ/" rel="tag"># BOJ</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/simulation/" rel="tag"># simulation</a>
           </div>
 
         
@@ -305,13 +303,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/21/%5BBOJ%5D%2014889.%20%EC%8A%A4%ED%83%80%ED%8A%B8%EC%99%80%20%EB%A7%81%ED%81%AC/" rel="prev" title="[BOJ] 14889. 스타트와 링크">
-      <i class="fa fa-chevron-left"></i> [BOJ] 14889. 스타트와 링크
+    <a href="/2021/01/29/%5BBOJ%5D%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/" rel="prev" title="[BOJ] 20056. 마법사 상어와 파이어볼">
+      <i class="fa fa-chevron-left"></i> [BOJ] 20056. 마법사 상어와 파이어볼
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/24/%5BBOJ%5D%2014891.%20%ED%86%B1%EB%8B%88%EB%B0%94%ED%80%B4/" rel="next" title="[BOJ] 14891. 톱니바퀴">
-      [BOJ] 14891. 톱니바퀴 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -378,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#14890-경사로"><span class="nav-number">1.</span> <span class="nav-text">14890. 경사로</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#20058-마법사-상어와-파이어스톰"><span class="nav-number">1.</span> <span class="nav-text">20058. 마법사 상어와 파이어스톰</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">1.1.</span> <span class="nav-text">Python</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -519,9 +514,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://jinyeop-yang.github.io/2020/03/23/[BOJ]%2014890.%20%EA%B2%BD%EC%82%AC%EB%A1%9C/";
-    this.page.identifier = "2020/03/23/[BOJ] 14890. 경사로/";
-    this.page.title = "[BOJ] 14890. 경사로";
+    this.page.url = "http://jinyeop-yang.github.io/2021/01/30/[BOJ]%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/";
+    this.page.identifier = "2021/01/30/[BOJ] 20058. 마법사 상어와 파이어스톰/";
+    this.page.title = "[BOJ] 20058. 마법사 상어와 파이어스톰";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
