@@ -20,22 +20,23 @@
     var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="20056. 마법사 상어와 파이어볼 문제링크">
+  <meta name="description" content="2206. 벽 부수고 이동하기 문제링크">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[BOJ] 20056. 마법사 상어와 파이어볼">
-<meta property="og:url" content="http://jinyeop-yang.github.io/2021/01/29/[BOJ]%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/index.html">
+<meta property="og:title" content="[BOJ] 2206. 벽 부수고 이동하기">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2021/02/15/[BOJ]%202206.%20%EB%B2%BD%20%EB%B6%80%EC%88%98%EA%B3%A0%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/index.html">
 <meta property="og:site_name" content="Sketches">
-<meta property="og:description" content="20056. 마법사 상어와 파이어볼 문제링크">
+<meta property="og:description" content="2206. 벽 부수고 이동하기 문제링크">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2021-01-29T13:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-29T13:59:14.323Z">
+<meta property="article:published_time" content="2021-02-15T14:30:00.000Z">
+<meta property="article:modified_time" content="2021-02-15T15:05:06.521Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="BOJ">
 <meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="bfs">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://jinyeop-yang.github.io/2021/01/29/[BOJ]%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/">
+<link rel="canonical" href="http://jinyeop-yang.github.io/2021/02/15/[BOJ]%202206.%20%EB%B2%BD%20%EB%B6%80%EC%88%98%EA%B3%A0%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>[BOJ] 20056. 마법사 상어와 파이어볼 | Sketches</title>
+  <title>[BOJ] 2206. 벽 부수고 이동하기 | Sketches</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
     <script>
@@ -209,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/01/29/[BOJ]%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/02/15/[BOJ]%202206.%20%EB%B2%BD%20%EB%B6%80%EC%88%98%EA%B3%A0%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/big.jpg">
@@ -222,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          [BOJ] 20056. 마법사 상어와 파이어볼
+          [BOJ] 2206. 벽 부수고 이동하기
         </h1>
 
         <div class="post-meta">
@@ -231,10 +232,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">작성일</span>
-              
 
-              <time title="Post created: 2021-01-29 22:00:00 / Updated at: 22:59:14" itemprop="dateCreated datePublished" datetime="2021-01-29T22:00:00+09:00">2021-01-29</time>
+              <time title="Post created: 2021-02-15 23:30:00" itemprop="dateCreated datePublished" datetime="2021-02-15T23:30:00+09:00">2021-02-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2021-02-16 00:05:06" itemprop="dateModified" datetime="2021-02-16T00:05:06+09:00">2021-02-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -254,8 +261,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2021/01/29/%5BBOJ%5D%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/29/[BOJ] 20056. 마법사 상어와 파이어볼/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/02/15/%5BBOJ%5D%202206.%20%EB%B2%BD%20%EB%B6%80%EC%88%98%EA%B3%A0%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/15/[BOJ] 2206. 벽 부수고 이동하기/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,17 +277,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="20056-마법사-상어와-파이어볼"><a href="#20056-마법사-상어와-파이어볼" class="headerlink" title="20056. 마법사 상어와 파이어볼"></a>20056. 마법사 상어와 파이어볼</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/20056" target="_blank" rel="noopener">문제링크</a></p>
+        <h3 id="2206-벽-부수고-이동하기"><a href="#2206-벽-부수고-이동하기" class="headerlink" title="2206. 벽 부수고 이동하기"></a>2206. 벽 부수고 이동하기</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/2206" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
 
 </li>
 </ul>
 <div class="note info">
-            <p><a href="https://jinyeop-yang.github.io/2021/01/28/%5BPython%5D%20'%25'%20%EC%9D%98%20%EC%9D%8C%EC%88%98%20%EC%97%B0%EC%82%B0/">인덱스 관련 참고해야 할 부분!!!!</a></p><p>시간 줄이는 방법</p><ul><li>Map 전체를 돌지 말고 deque 하나 생성해서 이동할 파이어볼 좌표만 넣어두고 움직이면 시간 줄일 수 있다!<ul><li>해본 후기 적기-</li></ul></li></ul>
+            <p>3중 for문 헷갈렸음.. ㅠ</p>
           </div>
 
-<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> _collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">N, M, K = map(int, input().split())</span><br><span class="line">Map = [[deque() <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(M):</span><br><span class="line">    y, x, m, s, d = map(int, input().split())</span><br><span class="line">    Map[y - <span class="number">1</span>][x - <span class="number">1</span>].append((m, s, d))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(K):</span><br><span class="line">    temp = deque()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment"># 이동</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(Map[i][j])):</span><br><span class="line">                m, s, d = Map[i][j].popleft()</span><br><span class="line">                ny = (s * dy[d] + i) % N</span><br><span class="line">                nx = (s * dx[d] + j) % N</span><br><span class="line">                temp.append((ny, nx, m, s, d))</span><br><span class="line">            Map[i][j].clear()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> y, x, m, s, d <span class="keyword">in</span> temp:</span><br><span class="line">        Map[y][x].append((m, s, d))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">if</span> len(Map[i][j]) &gt;= <span class="number">2</span>:</span><br><span class="line">                nm = ns = cnt = even = odd = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> m, s, d <span class="keyword">in</span> Map[i][j]:</span><br><span class="line">                    nm += m</span><br><span class="line">                    ns += s</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> d % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">                        odd += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        even += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                ns = ns // cnt</span><br><span class="line">                nm = nm // <span class="number">5</span></span><br><span class="line">                Map[i][j].clear()</span><br><span class="line">                <span class="keyword">if</span> nm != <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">if</span> (even &gt; <span class="number">0</span> <span class="keyword">and</span> odd == <span class="number">0</span>) <span class="keyword">or</span> (even == <span class="number">0</span> <span class="keyword">and</span> odd &gt; <span class="number">0</span>):</span><br><span class="line">                        <span class="keyword">for</span> nd <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>):</span><br><span class="line">                            Map[i][j].append((nm, ns, nd))</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">for</span> nd <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>):</span><br><span class="line">                            Map[i][j].append((nm, ns, nd))</span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">if</span> Map[i][j]:</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> Map[i][j]:</span><br><span class="line">                res += k[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections, sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">()</span>:</span></span><br><span class="line">    q = collections.deque()</span><br><span class="line">    q.append((<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">    visit[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        y, x, c, t = q.popleft()</span><br><span class="line">        <span class="keyword">if</span> y == N - <span class="number">1</span> <span class="keyword">and</span> x == M - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> t</span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            ny = y + dy[idx]</span><br><span class="line">            nx = x + dx[idx]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; M:</span><br><span class="line">                <span class="keyword">if</span> c:</span><br><span class="line">                    <span class="keyword">if</span> Map[ny][nx] == <span class="string">'1'</span>: <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> visit[ny][nx][c]:</span><br><span class="line">                            visit[ny][nx][c] = <span class="number">1</span></span><br><span class="line">                            q.append((ny, nx, c, t + <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> visit[ny][nx][c]:</span><br><span class="line">                        <span class="keyword">if</span> Map[ny][nx] == <span class="string">'1'</span>:</span><br><span class="line">                            visit[ny][nx][c + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">                            q.append((ny, nx, c + <span class="number">1</span>, t + <span class="number">1</span>))</span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            visit[ny][nx][c] = <span class="number">1</span></span><br><span class="line">                            q.append((ny, nx, c, t + <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">N, M = map(int, input().split())</span><br><span class="line">Map = [input() <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">visit = [[[<span class="number">0</span>] * <span class="number">2</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(M)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">res = float(<span class="string">'inf'</span>)</span><br><span class="line"></span><br><span class="line">print(bfs())</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -293,6 +300,7 @@
               <a href="/tags/python/" rel="tag"># python</a>
               <a href="/tags/BOJ/" rel="tag"># BOJ</a>
               <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+              <a href="/tags/bfs/" rel="tag"># bfs</a>
           </div>
 
         
@@ -301,12 +309,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/28/%5BPython%5D%20'%25'%20%EC%9D%98%20%EC%9D%8C%EC%88%98%20%EC%97%B0%EC%82%B0/" rel="prev" title="[Python] Modulo의 음수 연산">
-      <i class="fa fa-chevron-left"></i> [Python] Modulo의 음수 연산
+    <a href="/2021/02/11/%5BPython%5D%20Counter/" rel="prev" title="[Python] Counter">
+      <i class="fa fa-chevron-left"></i> [Python] Counter
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/30/%5BBOJ%5D%2020058.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EC%8A%A4%ED%86%B0/" rel="next" title="[BOJ] 20058. 마법사 상어와 파이어스톰">
-      [BOJ] 20058. 마법사 상어와 파이어스톰 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/19/%5BBOJ%5D%2016197.%20%EB%91%90%20%EB%8F%99%EC%A0%84/" rel="next" title="[BOJ] 16197. 두 동전">
+      [BOJ] 16197. 두 동전 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -374,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#20056-마법사-상어와-파이어볼"><span class="nav-number">1.</span> <span class="nav-text">20056. 마법사 상어와 파이어볼</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">1.1.</span> <span class="nav-text">Python</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2206-벽-부수고-이동하기"><span class="nav-number">1.</span> <span class="nav-text">2206. 벽 부수고 이동하기</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">1.1.</span> <span class="nav-text">Python</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -515,9 +523,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://jinyeop-yang.github.io/2021/01/29/[BOJ]%2020056.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B3%BC/";
-    this.page.identifier = "2021/01/29/[BOJ] 20056. 마법사 상어와 파이어볼/";
-    this.page.title = "[BOJ] 20056. 마법사 상어와 파이어볼";
+    this.page.url = "http://jinyeop-yang.github.io/2021/02/15/[BOJ]%202206.%20%EB%B2%BD%20%EB%B6%80%EC%88%98%EA%B3%A0%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0/";
+    this.page.identifier = "2021/02/15/[BOJ] 2206. 벽 부수고 이동하기/";
+    this.page.title = "[BOJ] 2206. 벽 부수고 이동하기";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
