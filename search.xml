@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 1941. 소문난 칠공주</title>
+    <url>/2021/02/18/%5BBOJ%5D%201941.%20%EC%86%8C%EB%AC%B8%EB%82%9C%20%EC%B9%A0%EA%B3%B5%EC%A3%BC/</url>
+    <content><![CDATA[<h3 id="1941-소문난-칠공주"><a href="#1941-소문난-칠공주" class="headerlink" title="1941. 소문난 칠공주"></a>1941. 소문난 칠공주</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1941" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>무작정 dfs를 돌렸는데 아니었다 :(</p><p>-&gt; dfs를 통해서 7명을 뽑으면 십자가같은 모양으로 뽑히는 경우를 발견하지 못함!</p><p>해결 방법</p><ol><li>조합을 통해 7명을 뽑는다.</li><li>‘S’가 4이상인지 확인한다.</li><li>2를 만족했을 경우, 모두 인접해 있는지 체크한다.</li></ol>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">girls = [input().rstrip() <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>)]</span><br><span class="line">selc = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">25</span>)]</span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> comb <span class="keyword">in</span> combinations(selc, <span class="number">7</span>):</span><br><span class="line">    s_cnt = <span class="number">0</span></span><br><span class="line">    visit = [[<span class="number">0</span>] * <span class="number">5</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> comb:</span><br><span class="line">        <span class="keyword">if</span> girls[i//<span class="number">5</span>][i%<span class="number">5</span>] == <span class="string">'S'</span>:</span><br><span class="line">            s_cnt += <span class="number">1</span></span><br><span class="line">        visit[i//<span class="number">5</span>][i%<span class="number">5</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> s_cnt &lt; <span class="number">4</span>: <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        q = deque()</span><br><span class="line">        q.append((comb[<span class="number">0</span>]//<span class="number">5</span>, comb[<span class="number">0</span>]%<span class="number">5</span>))</span><br><span class="line">        t = <span class="number">7</span></span><br><span class="line">        <span class="keyword">while</span> q:</span><br><span class="line">            y, x = q.popleft()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                ny = y + dy[a]</span><br><span class="line">                nx = x + dx[a]</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; <span class="number">5</span> <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; <span class="number">5</span> <span class="keyword">and</span> visit[ny][nx]:</span><br><span class="line">                    visit[ny][nx] = <span class="number">0</span></span><br><span class="line">                    q.append((ny, nx))</span><br><span class="line">                    t -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> t == <span class="number">0</span>: res += <span class="number">1</span></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>graph</tag>
+        <tag>combination</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[BOJ] 1717. 집합의 표현</title>
+    <url>/2021/02/18/%5BBOJ%5D%201717.%20%EC%A7%91%ED%95%A9%EC%9D%98%20%ED%91%9C%ED%98%84/</url>
+    <content><![CDATA[<h3 id="1717-집합의-표현"><a href="#1717-집합의-표현" class="headerlink" title="1717. 집합의 표현"></a>1717. 집합의 표현</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1717" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <h4 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union-Find"></a>Union-Find</h4><ul><li>여러 노드가 존재할 때, 두 개의 노드를 선택해서 현재 두 노드가 서로 같은 그래프에 속하는지 판별하는 알고리즘</li><li>상호 배타적 집합 (Disjoint-set) 이라고도 한다.</li></ul><p>재귀를 사용하다보니 <code>recursion error</code>가 발생해서 재귀 최대 횟수를 늘려주었다.</p>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.setrecursionlimit(<span class="number">10</span>**<span class="number">5</span>) <span class="comment"># recursion Error</span></span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">n, m = map(int, input().split())</span><br><span class="line">parent = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> t == parent[t]:</span><br><span class="line">        <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line">    parent[t] = find(parent[t])</span><br><span class="line">    <span class="keyword">return</span> parent[t]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">union</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    a = find(a)</span><br><span class="line">    b = find(b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a &lt; b: parent[b] = a</span><br><span class="line">    <span class="keyword">else</span>: parent[a] = b</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(m):</span><br><span class="line">    c, a, b = map(int, input().split())</span><br><span class="line">    <span class="keyword">if</span> c:</span><br><span class="line">        <span class="keyword">if</span> find(a) == find(b):</span><br><span class="line">            print(<span class="string">'YES'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'NO'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        union(a, b)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>Union Find</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 11404. 플로이드</title>
     <url>/2021/02/17/%5BBOJ%5D%2011404.%20%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C/</url>
     <content><![CDATA[<h3 id="11404-플로이드"><a href="#11404-플로이드" class="headerlink" title="11404. 플로이드"></a>11404. 플로이드</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/1912" target="_blank" rel="noopener">문제링크</a></p>
+<li><p><a href="https://www.acmicpc.net/problem/11404" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
 
 </li>
@@ -20,10 +71,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>graph</tag>
-        <tag>Floyd-Warshall</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
+        <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
   <entry>
@@ -209,32 +260,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[BOJ] 20057. 마법사 상어와 토네이도</title>
-    <url>/2021/01/26/%5BBOJ%5D%2020057.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%86%A0%EB%84%A4%EC%9D%B4%EB%8F%84/</url>
-    <content><![CDATA[<h3 id="20057-마법사-상어와-토네이도"><a href="#20057-마법사-상어와-토네이도" class="headerlink" title="20057. 마법사 상어와 토네이도"></a>20057. 마법사 상어와 토네이도</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/20057" target="_blank" rel="noopener">문제링크</a></p>
-<a id="more"></a>
-
-</li>
-</ul>
-<div class="note warning">
-            
-          </div>
-
-<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = int(input())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">y = x = N // <span class="number">2</span></span><br><span class="line">temp = res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">d = [[(<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-1</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">0</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>)],</span><br><span class="line">     [(<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">0</span>)]]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> int(n * <span class="number">0.01</span>), int(n * <span class="number">0.02</span>), int(n * <span class="number">0.05</span>), int(n * <span class="number">0.07</span>), int(n * <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(y, x, n, one, two, fiv, sev, ten, total)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="comment"># 1, 2, 7, 10, 5, 1, 2, 7, 10, a</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        ny = y + d[n][i][<span class="number">0</span>]</span><br><span class="line">        nx = x + d[n][i][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: Map[ny][nx] += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: Map[ny][nx] += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: Map[ny][nx] += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: Map[ny][nx] += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: Map[ny][nx] += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: Map[ny][nx] += (total - fiv - <span class="number">2</span> * (one + two + sev + ten))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: res += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: res += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: res += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: res += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: res += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: res += (total - fiv - (<span class="number">2</span> * (one + two + sev + ten)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 좌 하 우 상</span></span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">            n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">            one, two, fiv, sev, ten = cal(n)</span><br><span class="line">            check(y, x, <span class="number">0</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">1</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">2</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">3</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Baekjoon Online Judge</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>BOJ</tag>
-        <tag>algorithm</tag>
-        <tag>simulation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
     <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
     <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
@@ -248,6 +273,32 @@
           </div>
 
 <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[BOJ] 20057. 마법사 상어와 토네이도</title>
+    <url>/2021/01/26/%5BBOJ%5D%2020057.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%86%A0%EB%84%A4%EC%9D%B4%EB%8F%84/</url>
+    <content><![CDATA[<h3 id="20057-마법사-상어와-토네이도"><a href="#20057-마법사-상어와-토네이도" class="headerlink" title="20057. 마법사 상어와 토네이도"></a>20057. 마법사 상어와 토네이도</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/20057" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = int(input())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">y = x = N // <span class="number">2</span></span><br><span class="line">temp = res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">d = [[(<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-1</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">0</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>)],</span><br><span class="line">     [(<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">0</span>)]]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> int(n * <span class="number">0.01</span>), int(n * <span class="number">0.02</span>), int(n * <span class="number">0.05</span>), int(n * <span class="number">0.07</span>), int(n * <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(y, x, n, one, two, fiv, sev, ten, total)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="comment"># 1, 2, 7, 10, 5, 1, 2, 7, 10, a</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        ny = y + d[n][i][<span class="number">0</span>]</span><br><span class="line">        nx = x + d[n][i][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: Map[ny][nx] += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: Map[ny][nx] += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: Map[ny][nx] += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: Map[ny][nx] += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: Map[ny][nx] += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: Map[ny][nx] += (total - fiv - <span class="number">2</span> * (one + two + sev + ten))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: res += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: res += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: res += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: res += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: res += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: res += (total - fiv - (<span class="number">2</span> * (one + two + sev + ten)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 좌 하 우 상</span></span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">            n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">            one, two, fiv, sev, ten = cal(n)</span><br><span class="line">            check(y, x, <span class="number">0</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">1</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">2</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">3</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -290,9 +341,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -326,9 +377,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -360,9 +411,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -486,9 +537,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -516,9 +567,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -542,9 +593,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -634,9 +685,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -685,9 +736,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -712,9 +763,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -738,9 +789,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -765,9 +816,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -896,9 +947,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
