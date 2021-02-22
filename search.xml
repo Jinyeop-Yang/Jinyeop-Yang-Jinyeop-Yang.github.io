@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 1244. [S/W 문제해결 응용] 2일차 - 최대 상금</title>
+    <url>/2021/02/22/%5BSWEA%5D%201244.%20%5BSW%20%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%5D%202%EC%9D%BC%EC%B0%A8%20-%20%EC%B5%9C%EB%8C%80%20%EC%83%81%EA%B8%88/</url>
+    <content><![CDATA[<h3 id="1244-S-W-문제해결-응용-2일차-최대-상금"><a href="#1244-S-W-문제해결-응용-2일차-최대-상금" class="headerlink" title="1244. [S/W 문제해결 응용] 2일차 - 최대 상금"></a>1244. [S/W 문제해결 응용] 2일차 - 최대 상금</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=3&contestProbId=AV15Khn6AN0CFAYD&categoryId=AV15Khn6AN0CFAYD&categoryType=CODE&problemTitle=&orderBy=INQUERY_COUNT&selectCodeLang=ALL&select-1=3&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>visit 배열을 통해서 백트랙킹을 구현했고, 시간을 줄일 수 있었다.</p>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(cnt)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">if</span> cnt == c:</span><br><span class="line">        res = max(res, int(<span class="string">''</span>.join(n)))</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(n) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, len(n)):</span><br><span class="line">            n[i], n[j] = n[j], n[i]</span><br><span class="line">            temp = int(<span class="string">''</span>.join(n))</span><br><span class="line">            <span class="keyword">if</span> temp <span class="keyword">not</span> <span class="keyword">in</span> visit[cnt + <span class="number">1</span>]:</span><br><span class="line">                visit[cnt + <span class="number">1</span>].add(temp)</span><br><span class="line">                dfs(cnt + <span class="number">1</span>)</span><br><span class="line">            n[i], n[j] = n[j], n[i]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    n, c = list(map(int, input().split()))</span><br><span class="line">    res = float(<span class="string">'-inf'</span>)</span><br><span class="line">    visit = [set() <span class="keyword">for</span> _ <span class="keyword">in</span> range(n + <span class="number">1</span>)]</span><br><span class="line">    n = (list(str(n)))</span><br><span class="line"></span><br><span class="line">    dfs(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc + <span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>backtracking</tag>
+        <tag>swea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[SWEA] 1206. [S/W 문제해결 기본] 1일차 - View</title>
+    <url>/2021/02/22/%5BSWEA%5D%201206.%20%5BSW%20%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EA%B8%B0%EB%B3%B8%5D%201%EC%9D%BC%EC%B0%A8%20-%20View/</url>
+    <content><![CDATA[<h3 id="1206-S-W-문제해결-기본-1일차-View"><a href="#1206-S-W-문제해결-기본-1일차-View" class="headerlink" title="1206. [S/W 문제해결 기본] 1일차 - View"></a>1206. [S/W 문제해결 기본] 1일차 - View</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=3&contestProbId=AV134DPqAA8CFAYh&categoryId=AV134DPqAA8CFAYh&categoryType=CODE&problemTitle=&orderBy=INQUERY_COUNT&selectCodeLang=ALL&select-1=3&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">left</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> min(lis[i] - lis[i - <span class="number">1</span>], lis[i] - lis[i - <span class="number">2</span>])</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">right</span><span class="params">(i)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> min(lis[i] - lis[i + <span class="number">1</span>], lis[i] - lis[i + <span class="number">2</span>])</span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    m = int(input())</span><br><span class="line">    lis = list(map(int, input().split()))</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> range(<span class="number">2</span>, m - <span class="number">2</span>):</span><br><span class="line">        l, r = left(idx), right(idx)</span><br><span class="line">        <span class="keyword">if</span> l &lt;= <span class="number">0</span> <span class="keyword">or</span> r &lt;= <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">        res += min(l, r)</span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc + <span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>swea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 1941. 소문난 칠공주</title>
     <url>/2021/02/18/%5BBOJ%5D%201941.%20%EC%86%8C%EB%AC%B8%EB%82%9C%20%EC%B9%A0%EA%B3%B5%EC%A3%BC/</url>
     <content><![CDATA[<h3 id="1941-소문난-칠공주"><a href="#1941-소문난-칠공주" class="headerlink" title="1941. 소문난 칠공주"></a>1941. 소문난 칠공주</h3><ul>
@@ -20,9 +68,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>graph</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -71,10 +119,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -342,8 +390,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -378,8 +426,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -412,8 +460,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -538,8 +586,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -568,8 +616,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -594,8 +642,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -686,8 +734,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -737,8 +785,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -764,8 +812,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -790,8 +838,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -817,8 +865,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -948,8 +996,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
