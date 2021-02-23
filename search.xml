@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 17070. 파이프 옮기기1</title>
+    <url>/2021/02/23/%5BBOJ%5D%2017070.%20%ED%8C%8C%EC%9D%B4%ED%94%84%20%EC%98%AE%EA%B8%B0%EA%B8%B01/</url>
+    <content><![CDATA[<h3 id="17070-파이프-옮기기1"><a href="#17070-파이프-옮기기1" class="headerlink" title="17070. 파이프 옮기기1"></a>17070. 파이프 옮기기1</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/17070" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>아픔이 있었던 문제</p><p>DP로도 풀 수 있다!</p>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(y, x, d)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="keyword">if</span> y == N - <span class="number">1</span> <span class="keyword">and</span> x == N - <span class="number">1</span>:</span><br><span class="line">        res += <span class="number">1</span>; <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> d == <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y][x + <span class="number">1</span>] != <span class="number">1</span>:</span><br><span class="line">            dfs(y, x + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> y + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y][x + <span class="number">1</span>] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x + <span class="number">1</span>] != <span class="number">1</span>:</span><br><span class="line">            dfs(y + <span class="number">1</span>, x + <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">elif</span> d == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> y + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y + <span class="number">1</span>][x] != <span class="number">1</span>:</span><br><span class="line">            dfs(y + <span class="number">1</span>, x, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> y + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y][x + <span class="number">1</span>] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x + <span class="number">1</span>] != <span class="number">1</span>:</span><br><span class="line">            dfs(y + <span class="number">1</span>, x + <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">elif</span> d == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y][x + <span class="number">1</span>] != <span class="number">1</span>:</span><br><span class="line">            dfs(y, x + <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> y + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y + <span class="number">1</span>][x] != <span class="number">1</span>:</span><br><span class="line">            dfs(y + <span class="number">1</span>, x, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> x + <span class="number">1</span> &lt; N <span class="keyword">and</span> y + <span class="number">1</span> &lt; N <span class="keyword">and</span> Map[y][x + <span class="number">1</span>] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x] != <span class="number">1</span> <span class="keyword">and</span> Map[y + <span class="number">1</span>][x + <span class="number">1</span>] != <span class="number">1</span>:</span><br><span class="line">            dfs(y + <span class="number">1</span>, x + <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">N = int(input())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 1244. [S/W 문제해결 응용] 2일차 - 최대 상금</title>
     <url>/2021/02/22/%5BSWEA%5D%201244.%20%5BSW%20%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0%20%EC%9D%91%EC%9A%A9%5D%202%EC%9D%BC%EC%B0%A8%20-%20%EC%B5%9C%EB%8C%80%20%EC%83%81%EA%B8%88/</url>
     <content><![CDATA[<h3 id="1244-S-W-문제해결-응용-2일차-최대-상금"><a href="#1244-S-W-문제해결-응용-2일차-최대-상금" class="headerlink" title="1244. [S/W 문제해결 응용] 2일차 - 최대 상금"></a>1244. [S/W 문제해결 응용] 2일차 - 최대 상금</h3><ul>
@@ -68,9 +93,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>graph</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -119,10 +144,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>graph</tag>
-        <tag>Floyd-Warshall</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
+        <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
   <entry>
@@ -390,8 +415,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -426,8 +451,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -460,8 +485,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -586,8 +611,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -616,8 +641,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -642,8 +667,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -734,8 +759,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -785,8 +810,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -812,8 +837,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -838,8 +863,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -865,8 +890,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -996,8 +1021,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>c++</tag>
+        <tag>algorithm</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
