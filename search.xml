@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 2116. 주사위 쌓기</title>
+    <url>/2021/02/24/%5BBOJ%5D%202116.%20%EC%A3%BC%EC%82%AC%EC%9C%84%20%EC%8C%93%EA%B8%B0/</url>
+    <content><![CDATA[<h3 id="2116-주사위-쌓기"><a href="#2116-주사위-쌓기" class="headerlink" title="2116. 주사위 쌓기"></a>2116. 주사위 쌓기</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/2116" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">d = [<span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">side</span><span class="params">(dice, i)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">or</span> i == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">return</span> max(dice[<span class="number">1</span>], dice[<span class="number">2</span>], dice[<span class="number">3</span>], dice[<span class="number">4</span>])</span><br><span class="line">    <span class="keyword">elif</span> i == <span class="number">1</span> <span class="keyword">or</span> i == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> max(dice[<span class="number">0</span>], dice[<span class="number">2</span>], dice[<span class="number">4</span>], dice[<span class="number">5</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> max(dice[<span class="number">0</span>], dice[<span class="number">1</span>], dice[<span class="number">3</span>], dice[<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">N = int(input().rstrip())</span><br><span class="line">res = float(<span class="string">'-inf'</span>)</span><br><span class="line">dice = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(N):</span><br><span class="line">    dice.append((list(map(int, input().split()))))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">    s = dice[<span class="number">0</span>][i]</span><br><span class="line">    cnt = side(dice[<span class="number">0</span>], i)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, N):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">            <span class="keyword">if</span> dice[j][k] == s:</span><br><span class="line">                cnt += side(dice[j], k)</span><br><span class="line">                s = dice[j][d[k]]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    res = max(cnt, res)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[BOJ] 2573. 빙산</title>
+    <url>/2021/02/24/%5BBOJ%5D%202573.%20%EB%B9%99%EC%82%B0/</url>
+    <content><![CDATA[<h3 id="2573-빙산"><a href="#2573-빙산" class="headerlink" title="2573. 빙산"></a>2573. 빙산</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/2573" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>큐에 빙산 좌표를 넣어두고 하나씩 빼면서 진행했었는데 시간초과가 났다..</p><p>무한 루프 안에서 구역(zone)이 2가 되면 바로 빠져나오도록 else ~ break 구문을 2개 썼었는데 시간초과가 났다..</p>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(y, x, visit)</span>:</span></span><br><span class="line">    q = deque()</span><br><span class="line">    melt = deque()</span><br><span class="line">    q.append((y, x))</span><br><span class="line">    visit[y][x] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        y, x = q.popleft()</span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            ny = y + dy[d]</span><br><span class="line">            nx = x + dx[d]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; M <span class="keyword">and</span> <span class="keyword">not</span> visit[ny][nx]:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> Map[ny][nx]: cnt += <span class="number">1</span></span><br><span class="line">                <span class="keyword">elif</span> Map[ny][nx]:</span><br><span class="line">                    visit[ny][nx] = <span class="number">1</span></span><br><span class="line">                    q.append((ny, nx))</span><br><span class="line">        <span class="keyword">if</span> cnt:</span><br><span class="line">            melt.append((y, x, cnt))</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(melt)):</span><br><span class="line">        y, x, c = melt.popleft()</span><br><span class="line">        Map[y][x] = max(<span class="number">0</span>, Map[y][x] - c)</span><br><span class="line"></span><br><span class="line">N, M = map(int, input().split())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">t = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    zone = <span class="number">0</span></span><br><span class="line">    visit = [[<span class="number">0</span>] * M <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, N - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, M - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> Map[i][j] <span class="keyword">and</span> <span class="keyword">not</span> visit[i][j]:</span><br><span class="line">                zone += <span class="number">1</span></span><br><span class="line">                bfs(i, j, visit)</span><br><span class="line">    <span class="keyword">if</span> zone == <span class="number">0</span>:</span><br><span class="line">        print(<span class="number">0</span>); <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">elif</span> zone &gt;= <span class="number">2</span>: </span><br><span class="line">        print(t); <span class="keyword">break</span></span><br><span class="line">    t += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>bfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 17070. 파이프 옮기기1</title>
     <url>/2021/02/23/%5BBOJ%5D%2017070.%20%ED%8C%8C%EC%9D%B4%ED%94%84%20%EC%98%AE%EA%B8%B0%EA%B8%B01/</url>
     <content><![CDATA[<h3 id="17070-파이프-옮기기1"><a href="#17070-파이프-옮기기1" class="headerlink" title="17070. 파이프 옮기기1"></a>17070. 파이프 옮기기1</h3><ul>
@@ -93,9 +143,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>graph</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -144,10 +194,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>BOJ</tag>
-        <tag>algorithm</tag>
         <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -415,8 +465,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -451,8 +501,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -485,8 +535,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -611,8 +661,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -641,8 +691,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -667,8 +717,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -759,8 +809,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -810,8 +860,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -837,8 +887,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -863,8 +913,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -890,8 +940,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -1021,8 +1071,8 @@
       <tags>
         <tag>python</tag>
         <tag>BOJ</tag>
-        <tag>c++</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
