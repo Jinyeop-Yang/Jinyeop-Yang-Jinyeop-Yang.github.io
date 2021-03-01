@@ -503,6 +503,31 @@
       </tags>
   </entry>
   <entry>
+    <title>[BOJ] 11967. 불켜기</title>
+    <url>/2021/01/19/%5BBOJ%5D%2011967.%20%EB%B6%88%EC%BC%9C%EA%B8%B0/</url>
+    <content><![CDATA[<h3 id="11967-불켜기"><a href="#11967-불켜기" class="headerlink" title="11967. 불켜기"></a>11967. 불켜기</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/11967" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>방이동, 불켜기 따로생각</p>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    q = deque()</span><br><span class="line">    q.append((<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">    visit = &#123;(<span class="number">0</span>, <span class="number">0</span>)&#125;</span><br><span class="line">    cnt = &#123;(<span class="number">0</span>, <span class="number">0</span>)&#125;</span><br><span class="line">    light[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        y, x = q.popleft()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> len(Map[y][x]) == <span class="number">0</span>: <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> a, b <span class="keyword">in</span> Map[y][x]:</span><br><span class="line">                light[a][b] = <span class="number">1</span></span><br><span class="line">                cnt.add((a, b))</span><br><span class="line">                <span class="keyword">if</span> (a, b) <span class="keyword">not</span> <span class="keyword">in</span> visit:</span><br><span class="line">                    <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                        ny = a + dy[d]</span><br><span class="line">                        nx = b + dx[d]</span><br><span class="line">                        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N <span class="keyword">and</span> (ny, nx) <span class="keyword">in</span> visit:</span><br><span class="line">                            q.append((ny, nx))</span><br><span class="line">                            visit.add((ny, nx))</span><br><span class="line">                            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            ny = y + dy[d]</span><br><span class="line">            nx = x + dx[d]</span><br><span class="line">            <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N <span class="keyword">and</span> light[ny][nx] <span class="keyword">and</span> (ny, nx) <span class="keyword">not</span> <span class="keyword">in</span> visit:</span><br><span class="line">                q.append((ny, nx))</span><br><span class="line">                visit.add((ny, nx))</span><br><span class="line">    <span class="keyword">return</span> len(cnt)</span><br><span class="line"></span><br><span class="line">N, M = map(int, input().split())</span><br><span class="line">Map = [[[] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">light = [[<span class="number">0</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(M):</span><br><span class="line">    y, x, ny, nx = list(map(int, input().split()))</span><br><span class="line">    Map[y<span class="number">-1</span>][x<span class="number">-1</span>].append([ny<span class="number">-1</span>, nx<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">print(bfs())</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>bfs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 1912. 연속합</title>
     <url>/2021/01/19/%5BBOJ%5D%201912.%20%EC%97%B0%EC%86%8D%ED%95%A9/</url>
     <content><![CDATA[<h3 id="1912-연속합"><a href="#1912-연속합" class="headerlink" title="1912. 연속합"></a>1912. 연속합</h3><ul>
