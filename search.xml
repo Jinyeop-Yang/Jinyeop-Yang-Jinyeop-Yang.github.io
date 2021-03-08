@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 1967. 트리의 지름</title>
+    <url>/2021/03/08/%5BBOJ%5D%201967.%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EC%A7%80%EB%A6%84/</url>
+    <content><![CDATA[<h3 id="1967-트리의-지름"><a href="#1967-트리의-지름" class="headerlink" title="1967. 트리의 지름"></a>1967. 트리의 지름</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1967" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <p>트리의 지름</p><ol><li>임의의 노드 x에서 가장 먼 노드 y를 구한다.</li><li>노드 y에서 가장 먼 노드 z를 구한다.</li><li>노드 y에서 노드 z까지의 거리가 트리의 지름이다. ( 두 노드는 단말 노드이다.)</li></ol>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(v)</span>:</span></span><br><span class="line">    dist = node = <span class="number">0</span></span><br><span class="line">    q = deque()</span><br><span class="line">    q.append(v)</span><br><span class="line">    check = [<span class="number">0</span>] * N</span><br><span class="line">    check[v[<span class="number">0</span>]] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        v = q.popleft()</span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> adj[v[<span class="number">0</span>]]:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> check[e[<span class="number">0</span>]]:</span><br><span class="line">                check[e[<span class="number">0</span>]] = <span class="number">1</span></span><br><span class="line">                q.append((e[<span class="number">0</span>], e[<span class="number">1</span>] + v[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> e[<span class="number">1</span>] + v[<span class="number">1</span>] &gt; dist:</span><br><span class="line">                    dist = e[<span class="number">1</span>] + v[<span class="number">1</span>]</span><br><span class="line">                    node = e[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> dist, node</span><br><span class="line"></span><br><span class="line">N = int(input())</span><br><span class="line">adj = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N - <span class="number">1</span>):</span><br><span class="line">    u, v, w = map(int, input().split())</span><br><span class="line">    adj[u - <span class="number">1</span>].append((v - <span class="number">1</span>, w))</span><br><span class="line">    adj[v - <span class="number">1</span>].append((u - <span class="number">1</span>, w))</span><br><span class="line"></span><br><span class="line">print(bfs([bfs([<span class="number">0</span>,<span class="number">0</span>])[<span class="number">1</span>], <span class="number">0</span>])[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 5427. 불</title>
     <url>/2021/03/04/%5BBOJ%5D%205427.%20%EB%B6%88/</url>
     <content><![CDATA[<h3 id="5427-불"><a href="#5427-불" class="headerlink" title="5427. 불"></a>5427. 불</h3><ul>
@@ -557,9 +582,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -593,9 +618,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -627,9 +652,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -753,9 +778,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -783,9 +808,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -809,9 +834,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -901,10 +926,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>simulation</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -952,9 +977,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -979,9 +1004,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1005,9 +1030,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -1032,9 +1057,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -1136,8 +1161,8 @@
       <tags>
         <tag>python</tag>
         <tag>algorithm</tag>
-        <tag>SWEA</tag>
         <tag>tree</tag>
+        <tag>SWEA</tag>
       </tags>
   </entry>
   <entry>
@@ -1163,9 +1188,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
