@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jinyeop-yang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":10,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JAVA] JAVA 공부">
+<meta property="og:url" content="http://jinyeop-yang.github.io/2021/03/11/[JAVA]%20Java%20%EA%B3%B5%EB%B6%80/index.html">
+<meta property="og:site_name" content="Sketches">
+<meta property="og:description" content="JAVA">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2021-03-11T09:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-13T15:35:33.736Z">
+<meta property="article:author" content="Jy Yang">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://jinyeop-yang.github.io/2021/03/11/[JAVA]%20Java%20%EA%B3%B5%EB%B6%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>[JAVA] JAVA 공부 | Sketches</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160285603-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-160285603-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sketches</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Step by Step goes a long way</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>홈</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>태그</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>카테고리</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>아카이브</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Jinyeop-Yang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="ko">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/03/11/[JAVA]%20Java%20%EA%B3%B5%EB%B6%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/big.jpg">
+      <meta itemprop="name" content="Jy Yang">
+      <meta itemprop="description" content="모든 기록">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sketches">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [JAVA] JAVA 공부
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+
+              <time title="Post created: 2021-03-11 18:00:00" itemprop="dateCreated datePublished" datetime="2021-03-11T18:00:00+09:00">2021-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Updated at: 2021-03-14 00:35:33" itemprop="dateModified" datetime="2021-03-14T00:35:33+09:00">2021-03-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/11/%5BJAVA%5D%20Java%20%EA%B3%B5%EB%B6%80/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/11/[JAVA] Java 공부/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><a id="more"></a>
+
+<ul>
+<li>특징<ul>
+<li>객체지향언어(OOP) 이다.</li>
+<li>JVM (Java Virtual Machine) 만 있으면 동작하므로 OS에 독립적이다.</li>
+<li>가비지 컬렉션을 통한 메모리 관리</li>
+</ul>
+</li>
+<li>메모리 영역<ul>
+<li>메서드 영역<ul>
+<li>static 변수, 전역 변수, 코드에서 사용되는 클래스 정보들이 올라갑니다. 코드에서 사용되는 클래스들을 로더가 읽고 클래스 별로 분류해서 저장한다.</li>
+</ul>
+</li>
+<li>스택 영역<ul>
+<li>지역 변수, 메서드 등이 저장되는 영역</li>
+</ul>
+</li>
+<li>힙 영역<ul>
+<li>new 연산자를 통해 동적할당된 객체들이 저장되고, 메모리는 가비지 컬렉션에 의해 관리된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>java와 c++의 차이점<ul>
+<li>java는 JVM을 통해 동작하지만, c++은 OS에 맞는 기계어로 컴파일하여 동작한다.</li>
+<li>java는 보안, 이식성, 빠른 개발에 비중을 두었고, c++은 속도와 c 언어와의 호환성에 비중을 두었다.</li>
+</ul>
+</li>
+<li>java의 접근 제어자의 종류와 특징<ul>
+<li>모두 접근이 가능한 public</li>
+<li>같은 클래스 내에서만 접근이 가능한 private</li>
+<li>동일 클래스나 다른 패키지의 상속 관계의 하위 클래스에서만 접근 가능한 protected</li>
+<li>동일 패키지에서만 접근가능한 package</li>
+</ul>
+</li>
+<li>객체지향 프로그래밍과 절차지향 프로그래밍의 차이<ul>
+<li>절차지향 프로그래밍<ul>
+<li>실행하고자 하는 절차를 정하고, 이 절차대로 프로그래밍하는 방법<br>목적을 달성하기 위한 일의 흐름에 중점을 둔다.</li>
+</ul>
+</li>
+<li>객체지향 프로그래밍<ul>
+<li>실세상의 물체를 객체로 표현하고, 이들 사이의 관계, 상호 작용을 프로그램으로 나타낸다.</li>
+<li>객체를 추출하고 객체들의 관계를 결정하고 이들의 상호 작용에 필요한 함수(메서드)와 변수(필드)를 설계 및 구현하다.</li>
+<li>객체 지향의 행심은 연관되어 있는 변수와 메서드를 하나의 그룹으로 묶어서 그룹핑하는 것이다.</li>
+<li>사람의 사고와 가장 비슷하게 프로그래밍을 하기 위해서 생성된 기법</li>
+<li>하나의 클래스를 바탕으로 서로 다른 상태를 가진 인스턴스를 만들면 서로 다른 행동을 하게 된다. 즉, </li>
+<li>하나의 클래스가 여러 개의 인스턴스가 될 수 있다는 점이 객체 지향이 제공하는 가장 기본적인 재활용성이라고 할 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>객체지향프로그래밍(Object-Oriented Programming)이란<ul>
+<li>실생활에 있는 사물이나 그 기능을 class로 추상화 시키는 것을 의미합니다. 예를 들어 학교에서 학생, 과목 등의 실생활 객체들의 특징을 뽑아 프로그래밍하는 것을 의미하며 재사용성과 유지보수의 장점이 있습니다.</li>
+</ul>
+</li>
+<li>OOP의 4가지 특징<ul>
+<li>추상화(Abstraction)<ul>
+<li>공통 특징을 묶어 하나의 집합으로 다루는 것</li>
+</ul>
+</li>
+<li>캡슐화(Encapsulation)<ul>
+<li>정보 보호를 위해 외부의 접근을 막는 것</li>
+<li>getter, setter로 접근이 가능하다.</li>
+</ul>
+</li>
+<li>상속(Inheritance)<ul>
+<li>부모클래스의 속성과 기능을 그대로 사용할 수 있는 것</li>
+</ul>
+</li>
+<li>다형성(Polymorphism)<ul>
+<li>오버라이딩이나 오버로딩이 가능한 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OOP의 5대 원칙 (SOLID)<ul>
+<li>S: 단일 책임 원칙(SRP, Single Responsibility Principle)<ul>
+<li>객체는 단 하나의 책임만 가져야 한다.</li>
+</ul>
+</li>
+<li>O: 개방-폐쇄 원칙(OCP, Open Closed Principle)<ul>
+<li>기존의 코드를 변경하지 않으면서 기능을 추가할 수 있도록 설계가 되어야 한다.</li>
+</ul>
+</li>
+<li>L: 리스코프 치환 원칙(LSP, Liskov Substitution Principle)    <ul>
+<li>일반화 관계에 대한 이야기며, 자식 클래스는 최소한 자신의 부모 클래스에서 가능한 행위는 수행할 수 있어야 한다.</li>
+</ul>
+</li>
+<li>I: 의존 역전 원칙(DIP, Dependency Inversion Principle)<ul>
+<li>의존 관계를 맺을 때 변화하기 쉬운 것 또는 자주 변화하는 것보다는 변화하기 어려운 것, 거의 변화가 없는 것에 의존하라는 것이다.</li>
+</ul>
+</li>
+<li>D: 인터페이스 분리 원칙(ISP, Interface Segregation Principle)<ul>
+<li>인터페이스를 클라이언트에 특화되도록 분리시키라는 설계 원칙이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>오버로딩과 오버라이딩의 차이(Overloading vs Overriding)<ul>
+<li>Overloading<ul>
+<li>같은 이름의 메소드를 여러개 정의하는 것</li>
+<li>매개변수의 타입이 다르거나 개수가 달라야 한다.</li>
+</ul>
+</li>
+<li>Overriding<ul>
+<li>상속에서 나온 개념으로 부모 클래스의 메소드를 자식 클래스에서 재정의 하는 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Garbage Collection<ul>
+<li>시스템에서 더 이상 사용하지 않는 동적 할당된 메모리 블록을 찾아 자동으로 다시 사용 가능한 자원으로 회수 하는 것</li>
+<li>시스템에서 가비지 컬렉션을 수행하는 부분을 가비지 컬렉터라 부른다.</li>
+</ul>
+</li>
+<li>DAO / DTO<ul>
+<li>DAO(Data Access Object)<ul>
+<li>간단히 데이터베이스의 데이터에 접근을 위한 객체이다</li>
+<li>데이터베이스에 접근을 하기위한 로직과 비즈니스 로직을 분리하기 위해서 사용한다</li>
+<li>DB를 사용해 데이터를 조회하거나 조작하는 기능을 전담하도록 만든 오브젝트를 말한다.</li>
+</ul>
+</li>
+<li>DTO(Data Transfer Object)<ul>
+<li>계층간 데이터 교환을 위한 JavaBean을 말한다.</li>
+<li>여기서 말하는 계층이란 Controller, View, Business Layer, Persistent Layer를 말하며 각 계층간 데이터 교환을 위한 객체를 DTO 또는 VO(Value Object)라고 부른다</li>
+<li>VO는 동일한 개념이지만 read only 속성을 가집니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JSP / Servlet<ul>
+<li>JSP(Java Server Page)<ul>
+<li>HTML 소스 코드 속에 자바 소스 코드가 들어가는 구조를 갖는 웹 어플리케이션 프로그래밍 기술(Java In HTML)</li>
+</ul>
+</li>
+<li>Servlet<ul>
+<li>Container가 이해할 수 있게 구성된 순수 자바 코드로만 이루어진 것( Html in Java )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Interface<ul>
+<li>모든 메서드가 추상 메서드로 이루어진 클래스</li>
+<li>추상 메소드와 상수만을 멤버로 갖는다.</li>
+<li>Implements 키워드를 사용한다.</li>
+<li>다중 상속이 가능하다.</li>
+<li>상속의 관계가 없는 클래스간 서로 공동되는 로직을 구현하여쓸 수 있다.</li>
+</ul>
+</li>
+<li>Abstract<ul>
+<li>추상 메소드를 하나 이상 가진 클래스</li>
+<li>자신의 생성자로 객체 생성이 불가능</li>
+<li>하위 클래스를 참조하여 상위 클래스의 객체를 생성한다.</li>
+<li>하위 클래스를 제어하기 위해 사용한다.</li>
+</ul>
+</li>
+<li>Interface / Abstract<ul>
+<li>공통점<ul>
+<li>new로 생성 불가</li>
+<li>프로토 타입만 있는 메소드만 가진다.</li>
+<li>사용하기 위해서는 하위 클래스에서 확장 / 구현 해야한다.</li>
+</ul>
+</li>
+<li>차이점<ul>
+<li>사용하는 키워드가 다르다.</li>
+<li>abstract는 일반 메소드를 사용할 수 있지만, interface는 메소드 선언만 가능하다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>jdbc<ul>
+<li>자바에서 데이터베이스를 접속할 수 있도록 해주는 자바 API</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+              <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/09/%5BBOJ%5D%2019237.%20%EC%96%B4%EB%A5%B8%EC%83%81%EC%96%B4/" rel="prev" title="[BOJ] 19237. 어른 상어">
+      <i class="fa fa-chevron-left"></i> [BOJ] 19237. 어른 상어
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/12/%5BJAVA%5D%20Spring%20%EA%B3%B5%EB%B6%80/" rel="next" title="[JAVA] Spring 공부">
+      [JAVA] Spring 공부 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JAVA"><span class="nav-number">1.</span> <span class="nav-text">JAVA</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jy Yang"
+      src="/images/big.jpg">
+  <p class="site-author-name" itemprop="name">Jy Yang</p>
+  <div class="site-description" itemprop="description">모든 기록</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jinyeop-Yang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jinyeop-Yang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wlsduq1111@naver.com" title="E-Mail → mailto:wlsduq1111@naver.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jy Yang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jinyeop.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://jinyeop-yang.github.io/2021/03/11/[JAVA]%20Java%20%EA%B3%B5%EB%B6%80/";
+    this.page.identifier = "2021/03/11/[JAVA] Java 공부/";
+    this.page.title = "[JAVA] JAVA 공부";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jinyeop.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

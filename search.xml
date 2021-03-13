@@ -1,6 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[JAVA] Spring 공부</title>
+    <url>/2021/03/12/%5BJAVA%5D%20Spring%20%EA%B3%B5%EB%B6%80/</url>
+    <content><![CDATA[<h4 id="Spring-Framework"><a href="#Spring-Framework" class="headerlink" title="Spring Framework"></a>Spring Framework</h4><a id="more"></a>
+
+<ul>
+<li><p>Spring</p>
+<ul>
+<li><p>자바(JAVA) 플랫폼을 위한 오픈소스(Open Source) 애플리케이션 프레임워크(Framework)</p>
+</li>
+<li><p>자바 엔터프라이즈 개발을 편하게 해주는 오픈소스 경량급 애플리케이션 프레임워크</p>
+</li>
+<li><p>자바개발을 위한 프레임워크로 종속 객체를 생성해주고, 조립해주는 도구</p>
+</li>
+<li><p>자바로 된 프레임워크로 자바SE로 된 자바 객체(POJO)를 자바EE에 의존적이지 않게 연결해주는 역할</p>
+</li>
+</ul>
+</li>
+<li><p>특징</p>
+<ul>
+<li>크기와 부하의 측면에서 경량</li>
+<li>제어 역행(IoC)이라는 기술을 통해 애플리케이션의 느슨한 결합을 도모</li>
+<li>관점 지향 프로그래밍(AOP)을 위한 풍부한 자원</li>
+<li>애플리케이션 객체의 생명주기와 설정을 포함하고 관리한다는 점에서 일종의 컨테이너(Container)라고 할 수 있음.</li>
+<li>간단한 컴포넌트로 복잡한 애플리케이션을 구성하고 설정할 수 있음.</li>
+</ul>
+</li>
+<li><p>디테일한 특징</p>
+<ul>
+<li>경량 컨테이너로서 자바 객체를 직접 관리 =&gt; 각각의 객체 생성, 소멸과 같은 라이프 사이클을 관리하며 스프링으로부터 필요한 객체를 얻어올 수 있다.</li>
+<li>스프링은 POJO(Plain Old Java Object) 방식의 프레임워크<ul>
+<li>POJO<ul>
+<li>오래된 방식의 자바 오브젝트의 줄임말인데요. 특정한 자바 모델이나 기능, 프레임워크 등을 따르지 않는 자바 오브젝트를 뜻합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>스프링은 제어의 역행(IoC : Inversion of Control)을 지원 =&gt; 컨트롤의 제어권이 사용자가 아니라 프레임워크에 있어서 필요에 따라 스프링에서 사용자의 코드를 호출한다.<ul>
+<li>IoC<ul>
+<li>인스턴스의 생성부터 소멸까지 개발자가 아닌 컨테이너가 대신 관리해주는 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>스프링은 의존성 주입(DI : Dependency Injection)을 지원 =&gt; 각각의 계층이나 서비스들 간에 의존성이 존재할 경우 프레임워크가 서로 연결시켜준다.</li>
+<li>스프링은 관점 지향 프로그래밍(AOP : Aspect-Oriented Programming)을 지원 =&gt; 따라서 트랜잭션이나 로깅, 보안과 같이 여러 모듈에서 공통적으로 사용하는 기능의 경우 해당 기능을 분리하여 관리할 수 있다.<ul>
+<li>AOP<ul>
+<li>기존의 OOP(객체 지향 프로그래밍)에서 기능별로 class를 분리했음에도 불구하고, 여전히 로그, 트랜잭션, 자원해제, 성능테스트 메서드 처럼 공통적으로 반복되는 중복코드가 여전히 발생하는 단점을 해결하고자 나온 방식으로 이러한 공통 코드를 “횡단 관심사”라 표현하며 개발코드에서는 비지니스 로직에 집중하고 실행시에 비지니스 로직 앞, 뒤 등 원하는 지점에 해당 공통 관심사를 수행할 수 있게 함으로서 중복 코드를 줄일 수 있는 방식</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>스프링은 영속성과 관련된 다양한 서비스를 지원 =&gt; MyBatis나 Hibernate등 이미 완성도가 높은 데이터베이스 처리 라이브러리와 연결할 수 있는 인터페이스를 제공한다.</li>
+<li>스프링은 확장성이 높음 =&gt; 스프링 프레임워크에 통합하기 위해 간단하게 기존 라이브러리를 감싸는 정도로 스프링에서 사용이 가능하기 때문에 수많은 라이브러리가 이미 스프링에서 지원되고 있고 스프링에서 사용되는 라이브러리를 별도로 분리하기도 용이하다.</li>
+</ul>
+</li>
+<li><p>MVC 구조의 처리 과정</p>
+<ol>
+<li>DispatcherServlet : 어플리케이션으로 들어오는 모든 Request를 받는 관문이다. Request를 실제로 처리할 Controller에게 전달하고 그 결과값을 받아서 View에게 전달하여 적절한 응답을 생성할 수 있도록 흐름을 제어한다.</li>
+<li>HandlerMapping : Request URL 각각 어떤 Controller가 실제로 처리할 것인지 찾아주는 역할</li>
+<li>Controller : Request를 직접 처리한 후 그 결과를 다시 DispatcherServlet에게 돌려준다.</li>
+<li>ModelAndView : Controller가 처리한 결과와 그 결과를 보여줄 View에 관한 정보를 담고있는 객체이다.</li>
+<li>ViewResolver : View관련 정보를 갖고 실제 View를 찾아주는 역할을 한다.</li>
+<li>View : Controller가 처리한 결과값을 보여줄 View를 생성한다.</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>JAVA</tag>
+        <tag>spring</tag>
+        <tag>framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[JAVA] JAVA 공부</title>
+    <url>/2021/03/11/%5BJAVA%5D%20Java%20%EA%B3%B5%EB%B6%80/</url>
+    <content><![CDATA[<h4 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h4><a id="more"></a>
+
+<ul>
+<li>특징<ul>
+<li>객체지향언어(OOP) 이다.</li>
+<li>JVM (Java Virtual Machine) 만 있으면 동작하므로 OS에 독립적이다.</li>
+<li>가비지 컬렉션을 통한 메모리 관리</li>
+</ul>
+</li>
+<li>메모리 영역<ul>
+<li>메서드 영역<ul>
+<li>static 변수, 전역 변수, 코드에서 사용되는 클래스 정보들이 올라갑니다. 코드에서 사용되는 클래스들을 로더가 읽고 클래스 별로 분류해서 저장한다.</li>
+</ul>
+</li>
+<li>스택 영역<ul>
+<li>지역 변수, 메서드 등이 저장되는 영역</li>
+</ul>
+</li>
+<li>힙 영역<ul>
+<li>new 연산자를 통해 동적할당된 객체들이 저장되고, 메모리는 가비지 컬렉션에 의해 관리된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>java와 c++의 차이점<ul>
+<li>java는 JVM을 통해 동작하지만, c++은 OS에 맞는 기계어로 컴파일하여 동작한다.</li>
+<li>java는 보안, 이식성, 빠른 개발에 비중을 두었고, c++은 속도와 c 언어와의 호환성에 비중을 두었다.</li>
+</ul>
+</li>
+<li>java의 접근 제어자의 종류와 특징<ul>
+<li>모두 접근이 가능한 public</li>
+<li>같은 클래스 내에서만 접근이 가능한 private</li>
+<li>동일 클래스나 다른 패키지의 상속 관계의 하위 클래스에서만 접근 가능한 protected</li>
+<li>동일 패키지에서만 접근가능한 package</li>
+</ul>
+</li>
+<li>객체지향 프로그래밍과 절차지향 프로그래밍의 차이<ul>
+<li>절차지향 프로그래밍<ul>
+<li>실행하고자 하는 절차를 정하고, 이 절차대로 프로그래밍하는 방법<br>목적을 달성하기 위한 일의 흐름에 중점을 둔다.</li>
+</ul>
+</li>
+<li>객체지향 프로그래밍<ul>
+<li>실세상의 물체를 객체로 표현하고, 이들 사이의 관계, 상호 작용을 프로그램으로 나타낸다.</li>
+<li>객체를 추출하고 객체들의 관계를 결정하고 이들의 상호 작용에 필요한 함수(메서드)와 변수(필드)를 설계 및 구현하다.</li>
+<li>객체 지향의 행심은 연관되어 있는 변수와 메서드를 하나의 그룹으로 묶어서 그룹핑하는 것이다.</li>
+<li>사람의 사고와 가장 비슷하게 프로그래밍을 하기 위해서 생성된 기법</li>
+<li>하나의 클래스를 바탕으로 서로 다른 상태를 가진 인스턴스를 만들면 서로 다른 행동을 하게 된다. 즉, </li>
+<li>하나의 클래스가 여러 개의 인스턴스가 될 수 있다는 점이 객체 지향이 제공하는 가장 기본적인 재활용성이라고 할 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>객체지향프로그래밍(Object-Oriented Programming)이란<ul>
+<li>실생활에 있는 사물이나 그 기능을 class로 추상화 시키는 것을 의미합니다. 예를 들어 학교에서 학생, 과목 등의 실생활 객체들의 특징을 뽑아 프로그래밍하는 것을 의미하며 재사용성과 유지보수의 장점이 있습니다.</li>
+</ul>
+</li>
+<li>OOP의 4가지 특징<ul>
+<li>추상화(Abstraction)<ul>
+<li>공통 특징을 묶어 하나의 집합으로 다루는 것</li>
+</ul>
+</li>
+<li>캡슐화(Encapsulation)<ul>
+<li>정보 보호를 위해 외부의 접근을 막는 것</li>
+<li>getter, setter로 접근이 가능하다.</li>
+</ul>
+</li>
+<li>상속(Inheritance)<ul>
+<li>부모클래스의 속성과 기능을 그대로 사용할 수 있는 것</li>
+</ul>
+</li>
+<li>다형성(Polymorphism)<ul>
+<li>오버라이딩이나 오버로딩이 가능한 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OOP의 5대 원칙 (SOLID)<ul>
+<li>S: 단일 책임 원칙(SRP, Single Responsibility Principle)<ul>
+<li>객체는 단 하나의 책임만 가져야 한다.</li>
+</ul>
+</li>
+<li>O: 개방-폐쇄 원칙(OCP, Open Closed Principle)<ul>
+<li>기존의 코드를 변경하지 않으면서 기능을 추가할 수 있도록 설계가 되어야 한다.</li>
+</ul>
+</li>
+<li>L: 리스코프 치환 원칙(LSP, Liskov Substitution Principle)    <ul>
+<li>일반화 관계에 대한 이야기며, 자식 클래스는 최소한 자신의 부모 클래스에서 가능한 행위는 수행할 수 있어야 한다.</li>
+</ul>
+</li>
+<li>I: 의존 역전 원칙(DIP, Dependency Inversion Principle)<ul>
+<li>의존 관계를 맺을 때 변화하기 쉬운 것 또는 자주 변화하는 것보다는 변화하기 어려운 것, 거의 변화가 없는 것에 의존하라는 것이다.</li>
+</ul>
+</li>
+<li>D: 인터페이스 분리 원칙(ISP, Interface Segregation Principle)<ul>
+<li>인터페이스를 클라이언트에 특화되도록 분리시키라는 설계 원칙이다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>오버로딩과 오버라이딩의 차이(Overloading vs Overriding)<ul>
+<li>Overloading<ul>
+<li>같은 이름의 메소드를 여러개 정의하는 것</li>
+<li>매개변수의 타입이 다르거나 개수가 달라야 한다.</li>
+</ul>
+</li>
+<li>Overriding<ul>
+<li>상속에서 나온 개념으로 부모 클래스의 메소드를 자식 클래스에서 재정의 하는 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Garbage Collection<ul>
+<li>시스템에서 더 이상 사용하지 않는 동적 할당된 메모리 블록을 찾아 자동으로 다시 사용 가능한 자원으로 회수 하는 것</li>
+<li>시스템에서 가비지 컬렉션을 수행하는 부분을 가비지 컬렉터라 부른다.</li>
+</ul>
+</li>
+<li>DAO / DTO<ul>
+<li>DAO(Data Access Object)<ul>
+<li>간단히 데이터베이스의 데이터에 접근을 위한 객체이다</li>
+<li>데이터베이스에 접근을 하기위한 로직과 비즈니스 로직을 분리하기 위해서 사용한다</li>
+<li>DB를 사용해 데이터를 조회하거나 조작하는 기능을 전담하도록 만든 오브젝트를 말한다.</li>
+</ul>
+</li>
+<li>DTO(Data Transfer Object)<ul>
+<li>계층간 데이터 교환을 위한 JavaBean을 말한다.</li>
+<li>여기서 말하는 계층이란 Controller, View, Business Layer, Persistent Layer를 말하며 각 계층간 데이터 교환을 위한 객체를 DTO 또는 VO(Value Object)라고 부른다</li>
+<li>VO는 동일한 개념이지만 read only 속성을 가집니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JSP / Servlet<ul>
+<li>JSP(Java Server Page)<ul>
+<li>HTML 소스 코드 속에 자바 소스 코드가 들어가는 구조를 갖는 웹 어플리케이션 프로그래밍 기술(Java In HTML)</li>
+</ul>
+</li>
+<li>Servlet<ul>
+<li>Container가 이해할 수 있게 구성된 순수 자바 코드로만 이루어진 것( Html in Java )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Interface<ul>
+<li>모든 메서드가 추상 메서드로 이루어진 클래스</li>
+<li>추상 메소드와 상수만을 멤버로 갖는다.</li>
+<li>Implements 키워드를 사용한다.</li>
+<li>다중 상속이 가능하다.</li>
+<li>상속의 관계가 없는 클래스간 서로 공동되는 로직을 구현하여쓸 수 있다.</li>
+</ul>
+</li>
+<li>Abstract<ul>
+<li>추상 메소드를 하나 이상 가진 클래스</li>
+<li>자신의 생성자로 객체 생성이 불가능</li>
+<li>하위 클래스를 참조하여 상위 클래스의 객체를 생성한다.</li>
+<li>하위 클래스를 제어하기 위해 사용한다.</li>
+</ul>
+</li>
+<li>Interface / Abstract<ul>
+<li>공통점<ul>
+<li>new로 생성 불가</li>
+<li>프로토 타입만 있는 메소드만 가진다.</li>
+<li>사용하기 위해서는 하위 클래스에서 확장 / 구현 해야한다.</li>
+</ul>
+</li>
+<li>차이점<ul>
+<li>사용하는 키워드가 다르다.</li>
+<li>abstract는 일반 메소드를 사용할 수 있지만, interface는 메소드 선언만 가능하다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>jdbc<ul>
+<li>자바에서 데이터베이스를 접속할 수 있도록 해주는 자바 API</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 19237. 어른 상어</title>
     <url>/2021/03/09/%5BBOJ%5D%2019237.%20%EC%96%B4%EB%A5%B8%EC%83%81%EC%96%B4/</url>
     <content><![CDATA[<h3 id="19237-어른-상어"><a href="#19237-어른-상어" class="headerlink" title="19237. 어른 상어"></a>19237. 어른 상어</h3><ul>
@@ -555,32 +821,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
-    <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
-    <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/20055" target="_blank" rel="noopener">문제링크</a></p>
-<a id="more"></a>
-
-</li>
-</ul>
-<div class="note warning">
-            <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li>시간을 좀 줄일 수 있다.<ul><li>로봇은 0 ~ n - 1사이에서만 움직이기 때문에 모든 n 값을 확인 할 필요가 없다.</li><li>마지막 n - 1에서 로봇이 내려가는 걸 처리해줬다고 생각했는데 꼬여서 시간을 좀 잡아먹었다.</li></ul></li><li>다시 풀어보기!</li></ul>
-          </div>
-
-<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Baekjoon Online Judge</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>BOJ</tag>
-        <tag>algorithm</tag>
-        <tag>simulation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[BOJ] 20057. 마법사 상어와 토네이도</title>
     <url>/2021/01/26/%5BBOJ%5D%2020057.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%86%A0%EB%84%A4%EC%9D%B4%EB%8F%84/</url>
     <content><![CDATA[<h3 id="20057-마법사-상어와-토네이도"><a href="#20057-마법사-상어와-토네이도" class="headerlink" title="20057. 마법사 상어와 토네이도"></a>20057. 마법사 상어와 토네이도</h3><ul>
@@ -594,6 +834,32 @@
           </div>
 
 <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = int(input())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">y = x = N // <span class="number">2</span></span><br><span class="line">temp = res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">d = [[(<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-1</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">0</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>)],</span><br><span class="line">     [(<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">0</span>)]]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> int(n * <span class="number">0.01</span>), int(n * <span class="number">0.02</span>), int(n * <span class="number">0.05</span>), int(n * <span class="number">0.07</span>), int(n * <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(y, x, n, one, two, fiv, sev, ten, total)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="comment"># 1, 2, 7, 10, 5, 1, 2, 7, 10, a</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        ny = y + d[n][i][<span class="number">0</span>]</span><br><span class="line">        nx = x + d[n][i][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: Map[ny][nx] += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: Map[ny][nx] += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: Map[ny][nx] += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: Map[ny][nx] += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: Map[ny][nx] += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: Map[ny][nx] += (total - fiv - <span class="number">2</span> * (one + two + sev + ten))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: res += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: res += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: res += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: res += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: res += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: res += (total - fiv - (<span class="number">2</span> * (one + two + sev + ten)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 좌 하 우 상</span></span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">            n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">            one, two, fiv, sev, ten = cal(n)</span><br><span class="line">            check(y, x, <span class="number">0</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">1</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">2</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">3</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
+    <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
+    <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/20055" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li>시간을 좀 줄일 수 있다.<ul><li>로봇은 0 ~ n - 1사이에서만 움직이기 때문에 모든 n 값을 확인 할 필요가 없다.</li><li>마지막 n - 1에서 로봇이 내려가는 걸 처리해줬다고 생각했는데 꼬여서 시간을 좀 잡아먹었다.</li></ul></li><li>다시 풀어보기!</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
