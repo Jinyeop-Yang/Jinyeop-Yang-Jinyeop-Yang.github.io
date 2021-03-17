@@ -432,10 +432,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -580,10 +580,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -631,10 +631,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
