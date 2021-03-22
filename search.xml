@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 1034. 램프</title>
+    <url>/2021/03/22/%5BBOJ%5D%201034.%20%EB%9E%A8%ED%94%84/</url>
+    <content><![CDATA[<h3 id="1034-램프"><a href="#1034-램프" class="headerlink" title="1034. 램프"></a>1034. 램프</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1034" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N, M = map(int, input().split())</span><br><span class="line">arr = [input() <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">K = int(input())</span><br><span class="line">cnt = [<span class="number">0</span>]*N</span><br><span class="line"><span class="keyword">if</span> K%<span class="number">2</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        zero_cnt = arr[i].count(<span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> zero_cnt % <span class="number">2</span> <span class="keyword">and</span> zero_cnt &lt;= K:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">                <span class="keyword">if</span> arr[i] == arr[j]:</span><br><span class="line">                    cnt[i] += <span class="number">1</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        zero_cnt = arr[i].count(<span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> zero_cnt % <span class="number">2</span> <span class="keyword">and</span> zero_cnt &lt;= K:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">                <span class="keyword">if</span> arr[i] == arr[j]:</span><br><span class="line">                    cnt[i] += <span class="number">1</span></span><br><span class="line">print(max(cnt))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[JAVA] Spring 공부</title>
     <url>/2021/03/12/%5BJAVA%5D%20Spring%20%EA%B3%B5%EB%B6%80/</url>
     <content><![CDATA[<h4 id="Spring-Framework"><a href="#Spring-Framework" class="headerlink" title="Spring Framework"></a>Spring Framework</h4><a id="more"></a>
@@ -291,8 +315,8 @@
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>java</tag>
         <tag>simulation</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -432,10 +456,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -580,10 +604,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -631,10 +655,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
@@ -902,9 +926,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -938,9 +962,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -972,9 +996,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -1098,9 +1122,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1128,9 +1152,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1154,9 +1178,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1246,10 +1270,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>simulation</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,9 +1321,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -1324,9 +1348,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1350,9 +1374,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -1377,9 +1401,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -1508,9 +1532,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
