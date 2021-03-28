@@ -71,10 +71,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>heapq</tag>
         <tag>dijkstra</tag>
       </tags>
@@ -160,7 +160,7 @@
 <li>경량 컨테이너로서 자바 객체를 직접 관리 =&gt; 각각의 객체 생성, 소멸과 같은 라이프 사이클을 관리하며 스프링으로부터 필요한 객체를 얻어올 수 있다.</li>
 <li>스프링은 POJO(Plain Old Java Object) 방식의 프레임워크<ul>
 <li>POJO<ul>
-<li>오래된 방식의 자바 오브젝트의 줄임말인데요. 특정한 자바 모델이나 기능, 프레임워크 등을 따르지 않는 자바 오브젝트를 뜻합니다.</li>
+<li>오래된 방식의 자바 오브젝트의 줄임말. 특정한 자바 모델이나 기능, 프레임워크 등을 따르지 않는 자바 오브젝트를 뜻함</li>
 </ul>
 </li>
 </ul>
@@ -560,10 +560,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -708,10 +708,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -759,10 +759,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
