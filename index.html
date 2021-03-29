@@ -205,6 +205,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
+    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/03/29/[Python]%20Heapq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/big.jpg">
+      <meta itemprop="name" content="Jy Yang">
+      <meta itemprop="description" content="모든 기록">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sketches">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/29/%5BPython%5D%20Heapq/" class="post-title-link" itemprop="url">[Python] heapq</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2021-03-29 21:15:00 / Updated at: 22:07:20" itemprop="dateCreated datePublished" datetime="2021-03-29T21:15:00+09:00">2021-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/03/29/%5BPython%5D%20Heapq/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/29/[Python] Heapq/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div class="note info">
+            <h4 id="힙-자료구조"><a href="#힙-자료구조" class="headerlink" title="힙 자료구조"></a>힙 자료구조</h4><ul><li>이진 트리(binary tree) 기반의 최소 힙(min heap) 자료구조 ( JAVA의 <code>PriorityQueue</code> 와 비슷)</li><li>min heap을 사용하면 원소들이 항상 정렬된 상태로 추가되고 삭제된다.</li><li>가장 작은 값은 언제나 인덱스 0 ( 루트 )</li><li>내부적으로 min heap 내의 모든 원소 ( k )는 항상 자식 원소들 ( 2k + 1, 2k + 2 ) 보다 작거나 같다</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap[k] &lt;= heap[<span class="number">2</span>*k+<span class="number">1</span>] <span class="keyword">and</span> heap[k] &lt;= heap[<span class="number">2</span>*k+<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">heap = []</span><br><span class="line"><span class="comment"># 힙 원소 추가</span></span><br><span class="line">heapq.heappush(heap, <span class="number">4</span>)</span><br><span class="line">heapq.heappush(heap, <span class="number">1</span>)</span><br><span class="line">heapq.heappush(heap, <span class="number">7</span>)</span><br><span class="line">heapq.heappush(heap, <span class="number">3</span>)</span><br><span class="line">print(heap) <span class="comment"># [1, 3, 7, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 힙 원소 삭제</span></span><br><span class="line">print(heapq.heappop(heap)) <span class="comment"># 가장 작은 원소를 삭제 후 값 리턴 : 1</span></span><br><span class="line">print(heap) <span class="comment"># [3, 4, 7]</span></span><br><span class="line">print(heapq.heappop(heap)) <span class="comment"># 3</span></span><br><span class="line">print(heap) <span class="comment"># [4, 7]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 삭제하지 않고 최소값 얻기</span></span><br><span class="line">print(heap[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 기존 리스트를 힙으로 변환</span></span><br><span class="line">heap = [<span class="number">4</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>]</span><br><span class="line">heapq.heapify(heap)</span><br><span class="line">print(heap) <span class="comment"># [1, 3, 5, 4, 8, 7]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 최대 힙(max heap)</span></span><br><span class="line"><span class="comment"># 힙에 튜플(tuple)를 원소로 추가하거나 삭제하면, 튜플 내에서 맨 앞에 있는 값을 기준으로 최소 힙이 구성되는 원리를 이용</span></span><br><span class="line"><span class="comment"># 최대 힙을 만들려면 각 값에 대한 우선 순위를 구한 후, (우선 순위, 값) 구조의 튜플(tuple)을 힙에 추가하거나 삭제한다.</span></span><br><span class="line"><span class="comment"># 그리고 힙에서 값을 읽어올 때는 각 튜플에서 인덱스 1에 있는 값을 취하면 됩니다</span></span><br><span class="line">nums = [<span class="number">4</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>]</span><br><span class="line">heap = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">  heapq.heappush(heap, (-num, num))  <span class="comment"># (우선 순위, 값)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> heap:</span><br><span class="line">  print(heapq.heappop(heap)[<span class="number">1</span>])  <span class="comment"># index 1</span></span><br><span class="line"><span class="comment"># 8, 7, 5, 4, 3, 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># K번째 최소값 / 최대값</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kth_smallest</span><span class="params">(nums, k)</span>:</span></span><br><span class="line">  heap = []</span><br><span class="line">  <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    heapq.heappush(heap, num)</span><br><span class="line"></span><br><span class="line">  kth_min = <span class="literal">None</span></span><br><span class="line">  <span class="keyword">for</span> _ <span class="keyword">in</span> range(k):</span><br><span class="line">    kth_min = heapq.heappop(heap)</span><br><span class="line">  <span class="keyword">return</span> kth_min</span><br><span class="line"></span><br><span class="line">print(kth_smallest([<span class="number">4</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>], <span class="number">3</span>)) <span class="comment"># 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 힙 정렬</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">  heap = []</span><br><span class="line">  <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    heapq.heappush(heap, num)</span><br><span class="line">  </span><br><span class="line">  sorted_nums = []</span><br><span class="line">  <span class="keyword">while</span> heap:</span><br><span class="line">    sorted_nums.append(heapq.heappop(heap))</span><br><span class="line">  <span class="keyword">return</span> sorted_nums</span><br><span class="line"></span><br><span class="line">print(heap_sort([<span class="number">4</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">5</span>])) <span class="comment"># [1, 3, 4, 5, 7, 8]</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
     <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/03/27/[BOJ]%201976.%20%EC%97%AC%ED%96%89%20%EA%B0%80%EC%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1021,96 +1107,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="ko">
-    <link itemprop="mainEntityOfPage" href="http://jinyeop-yang.github.io/2021/03/08/[BOJ]%201167.%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EC%A7%80%EB%A6%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/big.jpg">
-      <meta itemprop="name" content="Jy Yang">
-      <meta itemprop="description" content="모든 기록">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sketches">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/08/%5BBOJ%5D%201167.%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EC%A7%80%EB%A6%84/" class="post-title-link" itemprop="url">[BOJ] 1167. 트리의 지름</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">작성일</span>
-              
-
-              <time title="Post created: 2021-03-08 12:00:00 / Updated at: 13:29:57" itemprop="dateCreated datePublished" datetime="2021-03-08T12:00:00+09:00">2021-03-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Baekjoon-Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Baekjoon Online Judge</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2021/03/08/%5BBOJ%5D%201167.%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EC%A7%80%EB%A6%84/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/03/08/[BOJ] 1167. 트리의 지름/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1167-트리의-지름"><a href="#1167-트리의-지름" class="headerlink" title="1167. 트리의 지름"></a>1167. 트리의 지름</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/1167" target="_blank" rel="noopener">문제링크</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/08/%5BBOJ%5D%201167.%20%ED%8A%B8%EB%A6%AC%EC%9D%98%20%EC%A7%80%EB%A6%84/#more" rel="contents">
-                더 읽어보기 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1183,7 +1179,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
