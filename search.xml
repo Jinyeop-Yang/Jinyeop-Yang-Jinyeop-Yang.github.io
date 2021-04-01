@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[BOJ] 1342. 행운의 문자열</title>
+    <url>/2021/04/01/%5BBOJ%5D%201342.%20%ED%96%89%EC%9A%B4%EC%9D%98%20%EB%AC%B8%EC%9E%90%EC%97%B4/</url>
+    <content><![CDATA[<h3 id="1342-행운의-문자열"><a href="#1342-행운의-문자열" class="headerlink" title="1342. 행운의 문자열"></a>1342. 행운의 문자열</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/1342" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note info">
+            <ol><li>순열을 통해서 행운의 문자열을 찾는다.</li><li>aba의 경우 aab, baa, aba, aba 이렇게 aba가 2개가 잡힌다.<ul><li>중복되기 때문에 a는 2개, b는 1개 -&gt; 정답에서 factorial(각 알파벳 개수)로 나눠준다.</li></ul></li></ol>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> factorial</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations</span><br><span class="line"></span><br><span class="line">s = input().rstrip()</span><br><span class="line">l = len(s)</span><br><span class="line">dic = &#123;&#125;</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> s: <span class="comment"># 알파벳 개수 구하기</span></span><br><span class="line">    <span class="keyword">if</span> e <span class="keyword">not</span> <span class="keyword">in</span> dic:</span><br><span class="line">        dic[e] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dic[e] += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">for</span> permutaion <span class="keyword">in</span> permutations(s, l):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(permutaion)):</span><br><span class="line">        <span class="keyword">if</span> permutaion[i] == permutaion[i<span class="number">-1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        res += <span class="number">1</span> <span class="comment"># 행운의 문자열 카운트</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> dic.values():</span><br><span class="line">    res //= factorial(v)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>permutations</tag>
+        <tag>backtracking</tag>
+        <tag>brute force</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[Python] heapq</title>
     <url>/2021/03/29/%5BPython%5D%20Heapq/</url>
     <content><![CDATA[<div class="note info">
@@ -1605,8 +1632,8 @@
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>DFS</tag>
         <tag>backtracking</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
