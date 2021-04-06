@@ -10,7 +10,7 @@
 </li>
 </ul>
 <div class="note info">
-            <ol><li>순열을 통해서 행운의 문자열을 찾는다.</li><li>aba의 경우 aab, baa, aba, aba 이렇게 aba가 2개가 잡힌다.<ul><li>중복되기 때문에 a는 2개, b는 1개 -&gt; 정답에서 factorial(각 알파벳 개수)로 나눠준다.</li></ul></li></ol>
+            <ol><li>순열을 통해서 행운의 문자열을 찾는다.</li><li>aba의 경우 aab, baa, aba, aba 이렇게 aba가 2개가 잡힌다.<ul><li>중복되기 때문에 a는 2개, b는 1개 -&gt; 정답에서 factorial (각 알파벳 개수)로 나눠준다.</li></ul></li></ol>
           </div>
 
 <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> factorial</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations</span><br><span class="line"></span><br><span class="line">s = input().rstrip()</span><br><span class="line">l = len(s)</span><br><span class="line">dic = &#123;&#125;</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> s: <span class="comment"># 알파벳 개수 구하기</span></span><br><span class="line">    <span class="keyword">if</span> e <span class="keyword">not</span> <span class="keyword">in</span> dic:</span><br><span class="line">        dic[e] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dic[e] += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">for</span> permutaion <span class="keyword">in</span> permutations(s, l):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(permutaion)):</span><br><span class="line">        <span class="keyword">if</span> permutaion[i] == permutaion[i<span class="number">-1</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        res += <span class="number">1</span> <span class="comment"># 행운의 문자열 카운트</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> dic.values():</span><br><span class="line">    res //= factorial(v)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
@@ -91,9 +91,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -1077,9 +1077,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -1113,9 +1113,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -1147,9 +1147,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -1273,9 +1273,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1303,9 +1303,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1329,9 +1329,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1421,9 +1421,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -1472,9 +1472,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -1499,9 +1499,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,9 +1525,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -1552,9 +1552,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -1683,9 +1683,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
