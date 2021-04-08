@@ -1,6 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[DB] Database 요약</title>
+    <url>/2021/04/07/%5BDB%5D%20DataBase%20%EC%9A%94%EC%95%BD/</url>
+    <content><![CDATA[<h3 id="데이터베이스"><a href="#데이터베이스" class="headerlink" title="데이터베이스"></a>데이터베이스</h3><a id="more"></a>
+
+<h4 id="데이터베이스-개념"><a href="#데이터베이스-개념" class="headerlink" title="데이터베이스 개념"></a>데이터베이스 개념</h4><ul>
+<li>데이터베이스 : 상호 관련된 데이터들의 모임</li>
+<li>데이터 언어<ul>
+<li>DDL (Data Definition Language)<ul>
+<li>‘정의어’라고 하며, 데이터베이스 구축, 변경, 제약조건 정의를 위한 언어</li>
+<li>CREATE, ALTER, DROP, TRUNCATE (테이블 초기화)</li>
+</ul>
+</li>
+<li>DML (Data Manipulation Language)<ul>
+<li>‘조작어’라고 하며, 데이터 처리, 검색, 삽입, 삭제 갱신 연산을 위한 언어</li>
+<li>SELECT, INSERT, UPDATE, DELETE</li>
+</ul>
+</li>
+<li>DCL (Data Control Language)<ul>
+<li>‘제어어’라고 하며, 보안 및 권한 제어, 무결성, 회복 ,병행제어를 위한 언어</li>
+<li>GRANT(권한 부여), REVOKE(권한 취소), COMMIT(작업 완료), ROLLBACK(작업 복구)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>스키마 (Schema)<ul>
+<li>데이터베이스의 구조와 제약 조건에 관한 전반적인 명세를 기술한 것</li>
+<li>데이터의 구조적 특성을 의미</li>
+<li>데이터 사전(시스템 카탈로그)에 저장된다.</li>
+<li>스키마의 3계층<ul>
+<li>외부 스키마 (External Schema = Sub Schema = 사용자 뷰) <ul>
+<li>사용자나 응용 프로그래머가 각 개인의 입장에서 필요로 하는 데이터베이스의 논리적 구조를 정의</li>
+<li>하나의 외부 스키마는 여럿이 공유 가능하며, 하나의 DB시스템에 여러개의 외부 스키마가 존재 가능</li>
+</ul>
+</li>
+<li>개념 스키마 (Conceptual Schema = 전체적인 뷰)<ul>
+<li>개체간의 관계와 제약조건을 나타내고, 데이터베이스의 접근 권한/ 보안 / 무결성 규칙에 대한 명세를 정의</li>
+<li>데이터베이스 관리자(DBA)에 의해 구성</li>
+<li>일반적으로 스키마라고 하면 개념 스키마를 의미</li>
+</ul>
+</li>
+<li>내부 스키마 (Internal Schema = 물리적 스키마)<ul>
+<li>물리적 저장장치의 입장에서 본 데이터베이스 구조, 물리적인 저장장치와 밀접함</li>
+<li>데이터베이스의 물리적 구조</li>
+<li>시스템 프로그래머나 설계자의 관점에서 바라보는 스키마</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="데이터베이스-설계"><a href="#데이터베이스-설계" class="headerlink" title="데이터베이스 설계"></a>데이터베이스 설계</h4><ul>
+<li>데이터베이스 설계 : DB의 구조, 즉 DB 스키마를 개발하는 과정</li>
+</ul>
+<ol>
+<li>요구 조건 분석<ul>
+<li>사용할 사람이 필요로 하는 용도 파악 =&gt; <strong>요구 조건 명세서</strong></li>
+</ul>
+</li>
+<li>개념적 설계<ul>
+<li>개념 스키마 모델링(데이터 중심 설계)과 트랙잭션 모델링(데이터 처리 중심 설계)을 병행하여 수행 =&gt; <strong>E-R 다이어그램</strong></li>
+</ul>
+</li>
+<li>논리적 설계<ul>
+<li>논리 스키마 설계, 정규화 과정 수행</li>
+<li>E-R 도형 =&gt; <strong>릴레이션 스키마</strong>로 변환</li>
+</ul>
+</li>
+<li>물리적 설계<ul>
+<li>특정한 저장 구조와 접근 경로를 결정하는 과정 =&gt; <strong>물리 스키마</strong> 설계</li>
+</ul>
+</li>
+<li>데이터베이스 구현<ul>
+<li>데이터베이스를 실제로 구축하는 과정</li>
+<li>DDL로 기술된 명령문을 실행하여 데이터베이스 스키마와 데이터베이스 파일 생성</li>
+</ul>
+</li>
+</ol>
+<h4 id="관계형-데이터베이스"><a href="#관계형-데이터베이스" class="headerlink" title="관계형 데이터베이스"></a>관계형 데이터베이스</h4><ul>
+<li><p>관계형 데이터 모델 : 데이터를 Table 또는 Relation의 구조로 표현하는 논리적 데이터 모델</p>
+</li>
+<li><p>릴레이션(Relation) : 데이터를 원자값으로 갖는 이차원의 테이블로 표현</p>
+<ul>
+<li>릴레이션 스키마 : 속성(칼럼)으로 나눠짐</li>
+<li>릴레이션 인스턴스 : 튜플(레코드)들의 집합</li>
+</ul>
+</li>
+<li><p>식별 관계 / 비식별 관계</p>
+<ul>
+<li>식별 관계 : 개체 A, B 사이의 관계에서 A 개체의 기본키가 B 개체의 외래키이면서 동시에 기본키인 관계 =&gt; 반드시 B가 존재하면 A도 존재해야 함</li>
+<li>비식별 관계 : 개체 A, B 사이의 관계에서 A 개체의 기본키가 B 개체의 비기본키의 영역에서 외래키가 되는 관계(E-R도형에서 점선 표시) =&gt; B가 존재해도 A가 존재하지 않을 수 있다.</li>
+</ul>
+</li>
+<li><p>키(Key)의 개념</p>
+<ul>
+<li>슈퍼키 : 유일성 o, 최소성 x / 각 행을 유일하게 식별할 수 있는 하나 또는 그 이상의 속성들의 집합</li>
+<li>후보키 : 유일성 o, 최소성 o / 각 행을 유일하게 식별할 수 있는 최소한의 속성들의 집합</li>
+<li>기본키 : 유일성 o, 최소성 o / 후보키들 중 하나를 선택한 키, 오직 하나만 지정 가능, NULL 값을 가질 수 없고, 중복될 수 없음</li>
+<li>대체키 : 후보키 중에서 기본키를 제외한 나머지 키</li>
+<li>외래키 : 다른 릴레이션의 기본키를 참조하는 속성 또는 속성들의 집합 / 릴레이션 간의 관계를 표현할 때 사용, 참조 릴레이션의 기본키와 동일한 키 속성을 가짐</li>
+</ul>
+</li>
+<li><p>무결성</p>
+<ul>
+<li>데이터베이스에 저장된 값과 실제 값이 일치하는 정확성</li>
+</ul>
+</li>
+<li><p>무결성(Integrity) 제약 조건</p>
+<ul>
+<li>DB내에 정확하지 않은 데이터가 저장되는 것을 방지하기 위한 제약 조건</li>
+</ul>
+<ol>
+<li>개체 무결성 : 릴레이션에서 기본키를 구성하는 속성은 널(NULL)값이나 중복값을 가질 수 없음</li>
+<li>참조 무결성 : 외래키 값은 NULL이거나 참조 릴레이션의 기본키 값과 동일해야 함</li>
+<li>도메인 무결성 : 특정 속성의 값이 정의된 도메인에 속한 값이어야 함</li>
+<li>고유 무결성 : 특정 속성에 대해 고유한 값을 가지도록 조건이 주어진 경우, 그 속성값은 모두 달라야함</li>
+<li>NULL 무결성 : 특정 속성값에 NULL이 올 수 없다는 조건이 주어진 경우, 그 속성값은 NULL이 되면 안됨</li>
+<li>키 무결성 : 한 릴레이션에는 최소 하나의 키가 존재해야 함</li>
+</ol>
+</li>
+<li><p>뷰(View)</p>
+<ul>
+<li>하나 이상의 기본 테이블에서 유도되는 가상 테이블</li>
+<li>물리적으로 존재하지 않지만 사용자에게는 있는 것처럼 보임</li>
+</ul>
+</li>
+</ul>
+<h4 id="정규화"><a href="#정규화" class="headerlink" title="정규화"></a>정규화</h4><ul>
+<li>이상(Anomaly) : 테이블에서 일부 속성들의 종속으로 인해 데이터의 중복 발생 =&gt; 이 중복으로 테이블 조작 시 문제가 발생하는 현상<ul>
+<li>삽입 이상 : 새 데이터를 삽입하기 위해 불필요한 데이터도 함께 삽입해야 하는 문제</li>
+<li>삭제 이상 : 튜플을 삭제하면 꼭 필요한 데이터까지 함께 삭제되는 데이터 손실의 문제</li>
+<li>갱신 이상 : 중복 튜플 중 일부만 변경하여 데이터가 불일치하게 되는 모순의 문제</li>
+</ul>
+</li>
+<li>정규화 : 이상 문제를 해결하기 위해 속성들 끼리의 종속 관계를 분석하여 여러개의 릴레이션으로 분해하는 과정<ol>
+<li>제 1정규형(1NF) : 모든 속성의 도메인이 <strong>원자 값</strong>으로만 되어 있는 정규형</li>
+<li>제 2정규형(2NF) : 제 1정규형을 만족하고, 기본키가 아닌 모든 속성이 기본키에 대해 <strong>완전 함수 종속</strong>을 만족하는 정규형</li>
+<li>제 3정규형(3NF) : 제 2정규형을 만족하고, 기본키가 아닌 모든 속성이 기본키에 대해 <strong>이행적 함수 종속을 만족하지 않는</strong> 정규형<ul>
+<li>이행적 함수 종속 : A -&gt; B 이고 B -&gt; C 일 때, A -&gt; C를 만족하는 관계</li>
+</ul>
+</li>
+<li>BCNF : 모든 결정자가 <strong>후보키</strong>인 정규형</li>
+<li>제 4정규형(4NF) : <strong>다중 종속</strong>을 제거한 정규형</li>
+<li>제 5정규형(5NF) : <strong>조인 종속성</strong>을 제거한 정규형</li>
+</ol>
+</li>
+</ul>
+<h4 id="데이터베이스-기타-응용"><a href="#데이터베이스-기타-응용" class="headerlink" title="데이터베이스 기타, 응용"></a>데이터베이스 기타, 응용</h4><ul>
+<li>시스템 카탈로그(데이터 사전)<ul>
+<li>DBA의 도구</li>
+<li>DB에 저장되어 있는 모든 데이터 개체들에 대한 정의나 명세 정보가 수록되어 있는 테이블</li>
+<li>기본 릴레이션, 인덱스, 뷰, 사용자, 접근 권한등 데이터베이스 구조 및 통계 정보 저장</li>
+<li>저장된 내용을 <strong>메타데이터</strong>라고 함</li>
+</ul>
+</li>
+<li>인덱스<ul>
+<li>데이터 레코드(튜플)에 빠르게 접근하기 위한 것</li>
+<li>&lt;키, 포인터&gt; 쌍으로 구성</li>
+<li>인덱스가 없을 경우, 특정 값을 찾을 때 모든 페이지를 뒤지는 현상 발생</li>
+</ul>
+</li>
+<li>트랜잭션<ul>
+<li>DB에서 하나의 논리적 기능을 수행하기 위한 일련의 연산 집합으로서의 작업 단위</li>
+<li>정상 종료시 Commit, 비정상 종료시 Rollback 수행</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DB</category>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>db</tag>
+        <tag>DB</tag>
+        <tag>database</tag>
+        <tag>Databaseㅌ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 1342. 행운의 문자열</title>
     <url>/2021/04/01/%5BBOJ%5D%201342.%20%ED%96%89%EC%9A%B4%EC%9D%98%20%EB%AC%B8%EC%9E%90%EC%97%B4/</url>
     <content><![CDATA[<h3 id="1342-행운의-문자열"><a href="#1342-행운의-문자열" class="headerlink" title="1342. 행운의 문자열"></a>1342. 행운의 문자열</h3><ul>
@@ -91,9 +271,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -118,10 +298,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>heapq</tag>
         <tag>dijkstra</tag>
       </tags>
@@ -607,10 +787,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -755,10 +935,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -806,10 +986,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
@@ -1077,9 +1257,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -1113,9 +1293,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -1147,9 +1327,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -1273,9 +1453,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1303,9 +1483,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1329,9 +1509,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1421,9 +1601,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -1472,9 +1652,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>bfs</tag>
       </tags>
   </entry>
@@ -1499,9 +1679,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,9 +1705,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -1552,9 +1732,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -1683,9 +1863,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
