@@ -29,8 +29,9 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://jinyeop-yang.github.io/images/process.png">
 <meta property="og:image" content="http://jinyeop-yang.github.io/images/memory.png">
+<meta property="og:image" content="http://jinyeop-yang.github.io/images/thread.png">
 <meta property="article:published_time" content="2020-11-01T11:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-06T14:56:46.124Z">
+<meta property="article:modified_time" content="2021-04-08T13:53:54.580Z">
 <meta property="article:author" content="Jy Yang">
 <meta property="article:tag" content="os">
 <meta property="article:tag" content="process">
@@ -243,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Updated at: 2021-04-06 23:56:46" itemprop="dateModified" datetime="2021-04-06T23:56:46+09:00">2021-04-06</time>
+                <time title="Updated at: 2021-04-08 22:53:54" itemprop="dateModified" datetime="2021-04-08T22:53:54+09:00">2021-04-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -358,8 +359,56 @@
 </ul>
 </li>
 </ul>
+<h5 id="멀티-프로세스"><a href="#멀티-프로세스" class="headerlink" title="멀티 프로세스"></a>멀티 프로세스</h5><ul>
+<li>멀티 프로세싱 : 하나의 응용 프로그램을 여러 개의 프로세스로 구성하여 각 프로세스가 하나의 작업(Task)를 처리하도록 하는 것</li>
+<li>장점 : 여러 개의 자식 프로세스 중 하나에 문제가 발생하면, 그 자식 프로세스만 죽는 것 이상으로 다른 영향이 확산되지 않는다.</li>
+<li>단점 : Context Switching에서의 오버헤드<ul>
+<li>Context Switching과정에서 캐시 메모리 초기화 등 무거운 작업이 진행되고 많은 시간이 소모되는 등의 오버헤드가 발생</li>
+<li>프로세스는 각각의 독립된 메모리 영역을 할당받았기 때문에 Context Switching발생 시, 캐시에 있는 모든 데이터를 리셋하고 다시 정보를 불러와야 한다.</li>
+<li>프로세스 사이의 어렵고 복잡한 통신 기법(IPC)<ul>
+<li>프로세스간의 변수를 공유할 수 없다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>Context Switching</code> : 하나의 프로세스가 CPU를 사용 중인 상태에서 다른 프로세스가 CPU를 사용하도록 하기 위해, 이전의 프로세스의 상태(<strong>문맥</strong>)를 보관하고 새로운 프로세스의 상태를 적재하는 작업</p>
+<h4 id="스레드-Thread"><a href="#스레드-Thread" class="headerlink" title="스레드(Thread)"></a>스레드(Thread)</h4><blockquote>
+<p>한 프로세스 내에서 동작되는 여러 실행 흐름의 단위이다. 프로세스 내에서 각각 Stack 영역만 따로 할당 받고, 나머지 Code, Data, Heap 영역은 공유한다.</p>
+<div style="display: flex">
+    <img src="/images/thread.png" alt="process" width="300">
+   </div>
+
+</blockquote>
+<h5 id="멀티-스레드"><a href="#멀티-스레드" class="headerlink" title="멀티 스레드"></a>멀티 스레드</h5><ul>
+<li>멀티 스레딩 : 하나의 응용프로그램을 여러 개의 스레드로 구성하고 각 스레드로 하여금 하나의 작업을 처리하도록 하는 것</li>
+<li>장점<ul>
+<li>시스템 자원 소모 감소(자원의 효율성 증대)<ul>
+<li>시스템 콜이 줄어들어 자원을 효율적으로 관리할 수 있다.</li>
+</ul>
+</li>
+<li>시스템 처리량 증가(처리 비용 감소)<ul>
+<li>스레드 간 데이터를 주고 받는 것이 간단해지고 시스템 자원 소모가 줄어든다.</li>
+<li>스레드 사이의 작업량이 작아 Context Switching이 빠르다.</li>
+</ul>
+</li>
+<li>간단한 통신 방법으로 인한 프로그램 응답 시간 단축<ul>
+<li>Stack 영역을 제외한 모든 메모리 영역을 공유하기 때문에 통신의 부담이 적다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>주의 깊은 설계가 필요, 디버깅이 까다로움</li>
+<li>단일 프로세스 시스템의 경우 효과를 기대하기 어려움</li>
+<li>다른 프로세스에서 스레드를 제어할 수 없음</li>
+<li>자원 공유의 문제(동기화) 발생</li>
+<li>하나의 스레드에 문제가 발생하면 전체 프로세스가 영향을 받음</li>
+</ul>
+</li>
+</ul>
 <div class="note warning">
-            <p>왜 여러 프로세스(멀티 프로세스)로 할 수 있는 작업들을 굳이 하나의 프로세스에서 스레드로 나누는가?</p><p>-&gt; 시스템 자원을 효율적으로 관리하기 위해서!</p>
+            <p>프로세스는 운영체제로부터 자원을 할당받는 작업의 단위이고, 스레드는 프로세스가 할당받은 자원을 이용하는 실행의 단위이다.</p><p>멀티 프로세스 대신 멀티 스레드를 사용하는 이유?</p><ol><li>자원의 효율성 증대</li><li>처리 비용 감소 및 응답 시간 단축</li></ol><p>하지만, 동기화 문제를 해결해 주어야 한다.</p>
           </div>
     </div>
 
@@ -454,7 +503,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#프로세스와-스레드"><span class="nav-number">1.</span> <span class="nav-text">프로세스와 스레드</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#프로세스-Process"><span class="nav-number">1.1.</span> <span class="nav-text">프로세스(Process)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#프로세스-제어-블록-PCB-Process-Control-Block"><span class="nav-number">1.1.1.</span> <span class="nav-text">프로세스 제어 블록(PCB, Process Control Block)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#프로세스와-스레드"><span class="nav-number">1.</span> <span class="nav-text">프로세스와 스레드</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#프로세스-Process"><span class="nav-number">1.1.</span> <span class="nav-text">프로세스(Process)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#프로세스-제어-블록-PCB-Process-Control-Block"><span class="nav-number">1.1.1.</span> <span class="nav-text">프로세스 제어 블록(PCB, Process Control Block)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#멀티-프로세스"><span class="nav-number">1.1.2.</span> <span class="nav-text">멀티 프로세스</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#스레드-Thread"><span class="nav-number">1.2.</span> <span class="nav-text">스레드(Thread)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#멀티-스레드"><span class="nav-number">1.2.1.</span> <span class="nav-text">멀티 스레드</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
