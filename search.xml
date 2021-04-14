@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 5644. [모의 SW 역량테스트] 무선 충전</title>
+    <url>/2021/04/14/%5BSWEA%5D%205644.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%EB%AC%B4%EC%84%A0%20%EC%B6%A9%EC%A0%84/</url>
+    <content><![CDATA[<h3 id="5644-모의-SW-역량테스트-무선-충전"><a href="#5644-모의-SW-역량테스트-무선-충전" class="headerlink" title="5644. [모의 SW 역량테스트] 무선 충전"></a>5644. [모의 SW 역량테스트] 무선 충전</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRDL1aeugDFAUo" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ul><li>구역 정하기</li><li>같은 구역인지 확인</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment"># sys.stdin = open("input.txt", "r")</span></span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    t, n = map(int, input().split())</span><br><span class="line">    move_a = list(map(int, input().split()))</span><br><span class="line">    move_b = list(map(int, input().split()))</span><br><span class="line">    Map = [[[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">    power = []</span><br><span class="line">    temp = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(n):</span><br><span class="line">        x, y, r, p = list(map(int, input().split()))</span><br><span class="line">        power.append(p)</span><br><span class="line"></span><br><span class="line">        check = set()</span><br><span class="line">        q = deque()</span><br><span class="line">        q.append((y - <span class="number">1</span>, x - <span class="number">1</span>))</span><br><span class="line">        check.add((y - <span class="number">1</span>, x - <span class="number">1</span>))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(r):</span><br><span class="line">            l = len(q)</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(l):</span><br><span class="line">                ty, tx = q.popleft()</span><br><span class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">                    ny = ty + dy[d]</span><br><span class="line">                    nx = tx + dx[d]</span><br><span class="line">                    <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; <span class="number">10</span> <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; <span class="number">10</span> <span class="keyword">and</span> (ny, nx) <span class="keyword">not</span> <span class="keyword">in</span> check:</span><br><span class="line">                        check.add((ny, nx))</span><br><span class="line">                        q.append((ny, nx))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(y - r - <span class="number">1</span>, y + r + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(x - r - <span class="number">1</span>, x + r + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="number">0</span> &lt;= i &lt; <span class="number">10</span> <span class="keyword">and</span> <span class="number">0</span> &lt;= j &lt; <span class="number">10</span>:</span><br><span class="line">                    <span class="keyword">if</span> temp <span class="keyword">not</span> <span class="keyword">in</span> Map[i][j] <span class="keyword">and</span> (i, j) <span class="keyword">in</span> check:</span><br><span class="line">                        Map[i][j].append(temp)</span><br><span class="line">        temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res_a = []</span><br><span class="line">    res_b = []</span><br><span class="line">    a_y, a_x, b_y, b_x = <span class="number">0</span>, <span class="number">0</span>, <span class="number">9</span>, <span class="number">9</span></span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> range(t + <span class="number">1</span>):</span><br><span class="line">        t_a = []</span><br><span class="line">        t_b = []</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> Map[a_y][a_x]:</span><br><span class="line">            t_a.append(v)</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> Map[b_y][b_x]:</span><br><span class="line">            t_b.append(v)</span><br><span class="line"></span><br><span class="line">        c_a = c_b = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> t_a:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> t_a:</span><br><span class="line">                charge_a = power[i]</span><br><span class="line">                <span class="keyword">if</span> t_b:</span><br><span class="line">                    <span class="keyword">for</span> j <span class="keyword">in</span> t_b:</span><br><span class="line">                        <span class="keyword">if</span> i != j:</span><br><span class="line">                            <span class="keyword">if</span> c_a + c_b &lt; power[i] + power[j]:</span><br><span class="line">                                c_a, c_b = power[i], power[j]</span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            <span class="keyword">if</span> c_a + c_b &lt; power[j]:</span><br><span class="line">                                c_a, c_b = power[i]//<span class="number">2</span>, power[j]//<span class="number">2</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    c_a = max(c_a, power[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> t_b:</span><br><span class="line">                res_b.append(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> t_b:</span><br><span class="line">                    c_b = max(c_b, power[i])</span><br><span class="line"></span><br><span class="line">        res_a.append(c_a)</span><br><span class="line">        res_b.append(c_b)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> d == t: <span class="keyword">break</span></span><br><span class="line">        a_y += dy[move_a[d]]</span><br><span class="line">        a_x += dx[move_a[d]]</span><br><span class="line">        b_y += dy[move_b[d]]</span><br><span class="line">        b_x += dx[move_b[d]]</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"#&#123;&#125; &#123;&#125;"</span>.format(tc + <span class="number">1</span>, sum(res_a) + sum(res_b)))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션</title>
     <url>/2021/04/14/%5BSWEA%5D%205648.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%EC%9B%90%EC%9E%90%20%EC%86%8C%EB%A9%B8%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/</url>
     <content><![CDATA[<h3 id="5648-모의-SW-역량테스트-원자-소멸-시뮬레이션"><a href="#5648-모의-SW-역량테스트-원자-소멸-시뮬레이션" class="headerlink" title="5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션"></a>5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션</h3><ul>
-<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo&categoryId=AWXRF8s6ezEDFAUo&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRFInKex8DFAUo&categoryId=AWXRFInKex8DFAUo&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
 <a id="more"></a>
 
 </li>
@@ -939,10 +964,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>heapq</tag>
         <tag>dijkstra</tag>
       </tags>
@@ -1428,10 +1453,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -1576,10 +1601,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -1627,10 +1652,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
