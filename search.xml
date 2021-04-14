@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션</title>
+    <url>/2021/04/14/%5BSWEA%5D%205648.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%EC%9B%90%EC%9E%90%20%EC%86%8C%EB%A9%B8%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/</url>
+    <content><![CDATA[<h3 id="5648-모의-SW-역량테스트-원자-소멸-시뮬레이션"><a href="#5648-모의-SW-역량테스트-원자-소멸-시뮬레이션" class="headerlink" title="5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션"></a>5648. [모의 SW 역량테스트] 원자 소멸 시뮬레이션</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo&categoryId=AWXRF8s6ezEDFAUo&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ul><li>0.5 단위로 이동</li><li>nx, ny가 달라서 헷갈렸음</li><li>수학적으로도 접근 가능할 듯!</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment"># sys.stdin = open("input.txt", "r")</span></span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">0.5</span>, <span class="number">-0.5</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-0.5</span>, <span class="number">0.5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(int(input())):</span><br><span class="line">        el = list(map(int, input().split()))</span><br><span class="line">        dic[(el[<span class="number">0</span>], el[<span class="number">1</span>])] = [[el[<span class="number">2</span>], el[<span class="number">3</span>]]]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> len(dic) &gt; <span class="number">1</span>:</span><br><span class="line">        temp = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> dic.items():</span><br><span class="line">            nx = key[<span class="number">0</span>] + dx[value[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line">            ny = key[<span class="number">1</span>] + dy[value[<span class="number">0</span>][<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="number">-1001</span> &lt; ny &lt; <span class="number">1001</span> <span class="keyword">and</span> <span class="number">-1001</span> &lt; nx &lt; <span class="number">1001</span>:</span><br><span class="line">                <span class="keyword">if</span> (nx, ny) <span class="keyword">not</span> <span class="keyword">in</span> temp:</span><br><span class="line">                    temp[(nx, ny)] = [value[<span class="number">0</span>]]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    temp[(nx, ny)].append(value[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        a = []</span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> temp.items():</span><br><span class="line">            <span class="keyword">if</span> len(v) &gt; <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">for</span> e <span class="keyword">in</span> v:</span><br><span class="line">                    res += e[<span class="number">1</span>]</span><br><span class="line">                a.append(k)</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> a:</span><br><span class="line">            <span class="keyword">del</span> temp[b]</span><br><span class="line">        dic = temp</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"#&#123;&#125; &#123;&#125;"</span>.format(tc + <span class="number">1</span>, res))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 5650. [모의 SW 역량테스트] 핀볼 게임</title>
     <url>/2021/04/14/%5BSWEA%5D%205650.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%ED%95%80%EB%B3%BC%20%EA%B2%8C%EC%9E%84/</url>
     <content><![CDATA[<h3 id="5650-모의-SW-역량테스트-핀볼-게임"><a href="#5650-모의-SW-역량테스트-핀볼-게임" class="headerlink" title="5650. [모의 SW 역량테스트] 핀볼 게임"></a>5650. [모의 SW 역량테스트] 핀볼 게임</h3><ul>
@@ -914,8 +939,8 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>graph</tag>
+        <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>heapq</tag>
@@ -1403,10 +1428,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -1551,8 +1576,8 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>graph</tag>
+        <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>combination</tag>
@@ -1602,11 +1627,11 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>graph</tag>
-        <tag>Floyd-Warshall</tag>
+        <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
   <entry>
@@ -2398,8 +2423,8 @@
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>brute force</tag>
         <tag>c++</tag>
+        <tag>brute force</tag>
       </tags>
   </entry>
   <entry>
