@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 5650. [모의 SW 역량테스트] 핀볼 게임</title>
+    <url>/2021/04/14/%5BSWEA%5D%205650.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%ED%95%80%EB%B3%BC%20%EA%B2%8C%EC%9E%84/</url>
+    <content><![CDATA[<h3 id="5650-모의-SW-역량테스트-핀볼-게임"><a href="#5650-모의-SW-역량테스트-핀볼-게임" class="headerlink" title="5650. [모의 SW 역량테스트] 핀볼 게임"></a>5650. [모의 SW 역량테스트] 핀볼 게임</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo&categoryId=AWXRF8s6ezEDFAUo&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=1" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ul><li>범위를 벗어나는 것 = 5번 블록에 부딪히는 것</li><li>맵 크기를 키워서 가장자리에 5를 추가해 줌</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line">change = [</span><br><span class="line">    <span class="string">'dummy'</span>,</span><br><span class="line">    (<span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>),</span><br><span class="line">    (<span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>),</span><br><span class="line">    (<span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>),</span><br><span class="line">    (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    (<span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">2</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N = int(input()) + <span class="number">2</span></span><br><span class="line">    <span class="comment"># 가장자리 5 추가</span></span><br><span class="line">    Map = [[<span class="number">5</span>] * N] + [[<span class="number">5</span>] + list(map(int, input().split())) + [<span class="number">5</span>] <span class="keyword">for</span> _ <span class="keyword">in</span> range(N - <span class="number">2</span>)] + [[<span class="number">5</span>] * N]</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    hall = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">if</span> <span class="number">6</span> &lt;= Map[i][j] &lt;= <span class="number">10</span>:</span><br><span class="line">                hall[Map[i][j] - <span class="number">6</span>].append((i, j))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> Map[i][j]:</span><br><span class="line">                sy, sx, = i, j</span><br><span class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                    cnt = <span class="number">0</span></span><br><span class="line">                    ny = i + dy[d]</span><br><span class="line">                    nx = j + dx[d]</span><br><span class="line">                    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">                        <span class="keyword">if</span> Map[ny][nx] == <span class="number">-1</span> <span class="keyword">or</span> (ny, nx) == (sy, sx):</span><br><span class="line">                            res = max(cnt, res)</span><br><span class="line">                            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">                        <span class="keyword">elif</span> <span class="number">1</span> &lt;= Map[ny][nx] &lt;= <span class="number">5</span>:</span><br><span class="line">                            d = change[Map[ny][nx]][d]</span><br><span class="line">                            cnt += <span class="number">1</span></span><br><span class="line">                        <span class="keyword">elif</span> <span class="number">6</span> &lt;= Map[ny][nx] &lt;= <span class="number">10</span>:</span><br><span class="line">                            <span class="keyword">for</span> a, b <span class="keyword">in</span> hall[Map[ny][nx] - <span class="number">6</span>]:</span><br><span class="line">                                <span class="keyword">if</span> (a, b) != (ny, nx):</span><br><span class="line">                                    ny, nx = a, b</span><br><span class="line">                                    <span class="keyword">break</span></span><br><span class="line">                        ny, nx = ny + dy[d], nx + dx[d] <span class="comment"># 한칸 전진</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc + <span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[BOJ] 16985. Maaaaaaaaaze</title>
     <url>/2021/04/13/%5BBOJ%5D%2016985.%20Maaaaaaaaaze/</url>
     <content><![CDATA[<h3 id="16985-Maaaaaaaaaze"><a href="#16985-Maaaaaaaaaze" class="headerlink" title="16985. Maaaaaaaaaze"></a>16985. Maaaaaaaaaze</h3><ul>
@@ -889,8 +914,8 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
+        <tag>graph</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>heapq</tag>
@@ -1378,10 +1403,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
+        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -1526,8 +1551,8 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
+        <tag>graph</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>combination</tag>
@@ -1577,8 +1602,8 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
-        <tag>graph</tag>
         <tag>python</tag>
+        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
@@ -2373,8 +2398,8 @@
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>brute force</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
