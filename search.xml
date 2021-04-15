@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 2117. [모의 SW 역량테스트] 홈 방범 서비스</title>
+    <url>/2021/04/15/%5BSWEA%5D%202117.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%ED%99%88%20%EB%B0%A9%EB%B2%94%20%EC%84%9C%EB%B9%84%EC%8A%A4/</url>
+    <content><![CDATA[<h3 id="2117-모의-SW-역량테스트-홈-방범-서비스"><a href="#2117-모의-SW-역량테스트-홈-방범-서비스" class="headerlink" title="2117. [모의 SW 역량테스트] 홈 방범 서비스"></a>2117. [모의 SW 역량테스트] 홈 방범 서비스</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5V61LqAf8DFAWu&categoryId=AV5V61LqAf8DFAWu&categoryType=CODE&problemTitle=sw&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=&pageSize=10&pageIndex=2" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ul><li>k = 1인 경우 계산</li><li>손해 보지 않는다 = 이익이 없어도 된다 = 이익이 0이어도 가능하다</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment"># sys.stdin = open("input.txt", "r")</span></span><br><span class="line">input = sys.stdin.readline</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">dy = [<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">dx = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(k)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> k * k + (k - <span class="number">1</span>) * (k - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(i, j)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    q = deque()</span><br><span class="line">    q.append((i, j))</span><br><span class="line">    visit = [[<span class="literal">False</span>] * N <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">    visit[i][j] = <span class="literal">True</span></span><br><span class="line">    k, tt = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    h = [<span class="number">1</span>] <span class="keyword">if</span> Map[i][j] == <span class="number">1</span> <span class="keyword">else</span> [<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line">        l = len(q)</span><br><span class="line">        <span class="keyword">if</span> k &gt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(l):</span><br><span class="line">                y, x = q.popleft()</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">                    ny = y + dy[d]</span><br><span class="line">                    nx = x + dx[d]</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N:</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> visit[ny][nx]:</span><br><span class="line">                            visit[ny][nx] = <span class="literal">True</span></span><br><span class="line">                            q.append((ny, nx))</span><br><span class="line">                            <span class="keyword">if</span> Map[ny][nx]:</span><br><span class="line">                                temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            h.append(h[<span class="number">-1</span>] + temp)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> h:</span><br><span class="line">            <span class="keyword">if</span> M * n - cal(k) &gt;= <span class="number">0</span>:</span><br><span class="line">                tt = max(tt, n)</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> tt</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N, M = map(int, input().split())</span><br><span class="line">    Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">    res = float(<span class="string">'-inf'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            res = max(res, solve(i, j))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc + <span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 5644. [모의 SW 역량테스트] 무선 충전</title>
     <url>/2021/04/14/%5BSWEA%5D%205644.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%EB%AC%B4%EC%84%A0%20%EC%B6%A9%EC%A0%84/</url>
     <content><![CDATA[<h3 id="5644-모의-SW-역량테스트-무선-충전"><a href="#5644-모의-SW-역량테스트-무선-충전" class="headerlink" title="5644. [모의 SW 역량테스트] 무선 충전"></a>5644. [모의 SW 역량테스트] 무선 충전</h3><ul>
@@ -2368,8 +2393,8 @@
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>bfs</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
