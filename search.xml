@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>[SWEA] 2383. [모의 SW 역량테스트] 점심 식사시간</title>
+    <url>/2021/04/17/%5BSWEA%5D%202383.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%EC%A0%90%EC%8B%AC%20%EC%8B%9D%EC%82%AC%EC%8B%9C%EA%B0%84/</url>
+    <content><![CDATA[<h3 id="2383-모의-SW-역량테스트-점심-식사시간"><a href="#2383-모의-SW-역량테스트-점심-식사시간" class="headerlink" title="2383. [모의 SW 역량테스트] 점심 식사시간"></a>2383. [모의 SW 역량테스트] 점심 식사시간</h3><ul>
+<li><p><a href="https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <ul><li>중복순열로 각 사람이 어떤 계단을 이용할지 선택</li><li>도착시간을 계산</li><li>가장 빠른 도착 순서로 계단 이용</li><li>시간에 따라 다음 사람이 이용</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(p, s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> abs(p[<span class="number">0</span>] - stair[s][<span class="number">0</span>]) + abs(p[<span class="number">1</span>] - stair[s][<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tc <span class="keyword">in</span> range(int(input())):</span><br><span class="line">    N = int(input())</span><br><span class="line">    Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">    res = float(<span class="string">'inf'</span>)</span><br><span class="line">    stair = []</span><br><span class="line">    person = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(N):</span><br><span class="line">            <span class="keyword">if</span> Map[i][j] &gt; <span class="number">1</span>:</span><br><span class="line">                stair.append((i, j))</span><br><span class="line">            <span class="keyword">elif</span> Map[i][j] == <span class="number">1</span>:</span><br><span class="line">                person.append((i, j))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> pro <span class="keyword">in</span> product(range(<span class="number">2</span>), repeat=len(person)):</span><br><span class="line">        wait = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">2</span>)]</span><br><span class="line">        time = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(person)):</span><br><span class="line">            t = step(person[i], pro[i])</span><br><span class="line">            wait[pro[i]].append((person[i], t))</span><br><span class="line"></span><br><span class="line">        q1 = deque()</span><br><span class="line">        q2 = deque()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">            wait[i].sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">                <span class="keyword">if</span> wait[i]:</span><br><span class="line">                    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                        l = wait[i].pop(<span class="number">0</span>)</span><br><span class="line">                        q1.append((l, l[<span class="number">1</span>] + Map[stair[i][<span class="number">0</span>]][stair[i][<span class="number">1</span>]] + <span class="number">1</span>))</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        l = wait[i].pop(<span class="number">0</span>)</span><br><span class="line">                        q2.append((l, l[<span class="number">1</span>] + Map[stair[i][<span class="number">0</span>]][stair[i][<span class="number">1</span>]] + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(q1)):</span><br><span class="line">                temp = q1.popleft()</span><br><span class="line">                <span class="keyword">if</span> temp[<span class="number">1</span>] &gt; time:</span><br><span class="line">                    q1.append(temp)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(q2)):</span><br><span class="line">                temp = q2.popleft()</span><br><span class="line">                <span class="keyword">if</span> temp[<span class="number">1</span>] &gt; time:</span><br><span class="line">                    q2.append(temp)</span><br><span class="line">                    </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">                temp = deque()</span><br><span class="line">                temp = q1 <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">else</span> q2</span><br><span class="line">                <span class="keyword">while</span> wait[i] <span class="keyword">and</span> len(temp) &lt; <span class="number">3</span>:</span><br><span class="line">                    l = wait[i].pop(<span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">if</span> l[<span class="number">1</span>] &lt;= time:</span><br><span class="line">                        <span class="keyword">if</span> l[<span class="number">1</span>] == time:</span><br><span class="line">                            temp.append((l, time + <span class="number">1</span> + Map[stair[i][<span class="number">0</span>]][stair[i][<span class="number">1</span>]]))</span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            temp.append((l, time + Map[stair[i][<span class="number">0</span>]][stair[i][<span class="number">1</span>]]))</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        temp.append((l, l[<span class="number">1</span>] + <span class="number">1</span> + Map[stair[i][<span class="number">0</span>]][stair[i][<span class="number">1</span>]]))</span><br><span class="line">                <span class="keyword">if</span> i == <span class="number">0</span>: q1 = temp</span><br><span class="line">                <span class="keyword">else</span>: q2 = temp</span><br><span class="line">                    </span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> q1 <span class="keyword">and</span> <span class="keyword">not</span> q2:</span><br><span class="line">                res = min(res, time)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            time += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">f'#<span class="subst">&#123;tc + <span class="number">1</span>&#125;</span> <span class="subst">&#123;res&#125;</span>'</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SW Expert Academy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+        <tag>SWEA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>[SWEA] 2117. [모의 SW 역량테스트] 홈 방범 서비스</title>
     <url>/2021/04/15/%5BSWEA%5D%202117.%20%5B%EB%AA%A8%EC%9D%98%20SW%20%EC%97%AD%EB%9F%89%ED%85%8C%EC%8A%A4%ED%8A%B8%5D%20%ED%99%88%20%EB%B0%A9%EB%B2%94%20%EC%84%9C%EB%B9%84%EC%8A%A4/</url>
     <content><![CDATA[<h3 id="2117-모의-SW-역량테스트-홈-방범-서비스"><a href="#2117-모의-SW-역량테스트-홈-방범-서비스" class="headerlink" title="2117. [모의 SW 역량테스트] 홈 방범 서비스"></a>2117. [모의 SW 역량테스트] 홈 방범 서비스</h3><ul>
@@ -962,9 +987,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -989,10 +1014,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>heapq</tag>
         <tag>dijkstra</tag>
       </tags>
@@ -1478,10 +1503,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>Union-Find</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>Union-Find</tag>
       </tags>
   </entry>
   <entry>
@@ -1626,10 +1651,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>combination</tag>
       </tags>
   </entry>
@@ -1677,10 +1702,10 @@
         <category>Baekjoon Online Judge</category>
       </categories>
       <tags>
+        <tag>graph</tag>
         <tag>python</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>graph</tag>
         <tag>Floyd-Warshall</tag>
       </tags>
   </entry>
@@ -1867,32 +1892,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
-    <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
-    <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
-<li><p><a href="https://www.acmicpc.net/problem/20055" target="_blank" rel="noopener">문제링크</a></p>
-<a id="more"></a>
-
-</li>
-</ul>
-<div class="note warning">
-            <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li>시간을 좀 줄일 수 있다.<ul><li>로봇은 0 ~ n - 1사이에서만 움직이기 때문에 모든 n 값을 확인 할 필요가 없다.</li><li>마지막 n - 1에서 로봇이 내려가는 걸 처리해줬다고 생각했는데 꼬여서 시간을 좀 잡아먹었다.</li></ul></li><li>다시 풀어보기!</li></ul>
-          </div>
-
-<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Baekjoon Online Judge</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>BOJ</tag>
-        <tag>algorithm</tag>
-        <tag>simulation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[BOJ] 20057. 마법사 상어와 토네이도</title>
     <url>/2021/01/26/%5BBOJ%5D%2020057.%20%EB%A7%88%EB%B2%95%EC%82%AC%20%EC%83%81%EC%96%B4%EC%99%80%20%ED%86%A0%EB%84%A4%EC%9D%B4%EB%8F%84/</url>
     <content><![CDATA[<h3 id="20057-마법사-상어와-토네이도"><a href="#20057-마법사-상어와-토네이도" class="headerlink" title="20057. 마법사 상어와 토네이도"></a>20057. 마법사 상어와 토네이도</h3><ul>
@@ -1906,6 +1905,32 @@
           </div>
 
 <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = int(input())</span><br><span class="line">Map = [list(map(int, input().split())) <span class="keyword">for</span> _ <span class="keyword">in</span> range(N)]</span><br><span class="line">y = x = N // <span class="number">2</span></span><br><span class="line">temp = res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">d = [[(<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-1</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">0</span>)],</span><br><span class="line">     [(<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">0</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>)],</span><br><span class="line">     [(<span class="number">1</span>, <span class="number">-1</span>), (<span class="number">0</span>, <span class="number">-2</span>), (<span class="number">0</span>, <span class="number">-1</span>), (<span class="number">-1</span>, <span class="number">-1</span>), (<span class="number">-2</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">1</span>), (<span class="number">-1</span>, <span class="number">0</span>)]]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> int(n * <span class="number">0.01</span>), int(n * <span class="number">0.02</span>), int(n * <span class="number">0.05</span>), int(n * <span class="number">0.07</span>), int(n * <span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(y, x, n, one, two, fiv, sev, ten, total)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> res</span><br><span class="line">    <span class="comment"># 1, 2, 7, 10, 5, 1, 2, 7, 10, a</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        ny = y + d[n][i][<span class="number">0</span>]</span><br><span class="line">        nx = x + d[n][i][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= ny &lt; N <span class="keyword">and</span> <span class="number">0</span> &lt;= nx &lt; N:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: Map[ny][nx] += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: Map[ny][nx] += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: Map[ny][nx] += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: Map[ny][nx] += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: Map[ny][nx] += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: Map[ny][nx] += (total - fiv - <span class="number">2</span> * (one + two + sev + ten))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>: res += one</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">1</span>: res += two</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">2</span>: res += sev</span><br><span class="line">            <span class="keyword">elif</span> i % <span class="number">5</span> == <span class="number">3</span>: res += ten</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">4</span>: res += fiv</span><br><span class="line">            <span class="keyword">elif</span> i == <span class="number">9</span>: res += (total - fiv - (<span class="number">2</span> * (one + two + sev + ten)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="comment"># 좌 하 우 상</span></span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">            n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">            one, two, fiv, sev, ten = cal(n)</span><br><span class="line">            check(y, x, <span class="number">0</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">1</span>, one, two, fiv, sev, ten, n)</span><br><span class="line">    temp += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        x += <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">2</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(temp):</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        n, Map[y][x] = Map[y][x], <span class="number">0</span></span><br><span class="line">        one, two, fiv, sev, ten = cal(n)</span><br><span class="line">        check(y, x, <span class="number">3</span>, one, two, fiv, sev, ten, n)</span><br><span class="line"></span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Baekjoon Online Judge</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>BOJ</tag>
+        <tag>algorithm</tag>
+        <tag>simulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[BOJ] 20055. 컨베이어 위의 벨트</title>
+    <url>/2021/01/26/%5BBOJ%5D%2020055.%20%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%20%EC%9C%84%EC%9D%98%20%EB%A1%9C%EB%B4%87/</url>
+    <content><![CDATA[<h3 id="20055-컨베이어-위의-벨트"><a href="#20055-컨베이어-위의-벨트" class="headerlink" title="20055. 컨베이어 위의 벨트"></a>20055. 컨베이어 위의 벨트</h3><ul>
+<li><p><a href="https://www.acmicpc.net/problem/20055" target="_blank" rel="noopener">문제링크</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<div class="note warning">
+            <h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><ul><li>시간을 좀 줄일 수 있다.<ul><li>로봇은 0 ~ n - 1사이에서만 움직이기 때문에 모든 n 값을 확인 할 필요가 없다.</li><li>마지막 n - 1에서 로봇이 내려가는 걸 처리해줬다고 생각했는데 꼬여서 시간을 좀 잡아먹었다.</li></ul></li><li>다시 풀어보기!</li></ul>
+          </div>
+
+<h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">belt = list(map(int, input().split()))</span><br><span class="line">robot = [<span class="number">0</span>] * (len(belt))</span><br><span class="line">res, cnt = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    belt = [belt[<span class="number">-1</span>]] + belt[:<span class="number">-1</span>]</span><br><span class="line">    robot = [robot[<span class="number">-1</span>]] + robot[:<span class="number">-1</span>]</span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n * <span class="number">2</span> - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            temp.append(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> temp[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> robot[i]:</span><br><span class="line">            <span class="comment"># 로봇이 있을 때 n - 1 / 2n - 1 / 그 외</span></span><br><span class="line">            <span class="keyword">if</span> i == n - <span class="number">1</span>:</span><br><span class="line">                robot[i] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> i == (n * <span class="number">2</span>) - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> belt[<span class="number">0</span>] &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">elif</span> robot[<span class="number">0</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> robot[i + <span class="number">1</span>] == <span class="number">0</span> <span class="keyword">and</span> belt[i + <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">                    belt[i + <span class="number">1</span>] -= <span class="number">1</span></span><br><span class="line">                    robot[i] = <span class="number">0</span></span><br><span class="line">                    robot[i + <span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> belt[<span class="number">0</span>] &gt; <span class="number">0</span> <span class="keyword">and</span> robot[<span class="number">0</span>] == <span class="number">0</span>:</span><br><span class="line">            robot[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">            belt[<span class="number">0</span>] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line">    robot[n<span class="number">-1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> belt.count(<span class="number">0</span>) &gt;= k:</span><br><span class="line">        print(res)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -1948,9 +1973,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>dp</tag>
         <tag>dynamic programming</tag>
@@ -1984,9 +2009,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -2018,9 +2043,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>java</tag>
         <tag>stack</tag>
       </tags>
@@ -2192,9 +2217,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -2222,9 +2247,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -2248,9 +2273,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -2340,9 +2365,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>simulation</tag>
       </tags>
   </entry>
@@ -2391,10 +2416,10 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
         <tag>bfs</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -2418,9 +2443,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -2444,9 +2469,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
@@ -2471,9 +2496,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>brute force</tag>
       </tags>
   </entry>
@@ -2602,9 +2627,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>c++</tag>
         <tag>BOJ</tag>
         <tag>algorithm</tag>
-        <tag>c++</tag>
         <tag>DFS</tag>
       </tags>
   </entry>
